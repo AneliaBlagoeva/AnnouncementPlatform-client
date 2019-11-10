@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { User } from '../models/user.model';
+import { JobUser } from '../models/jobuser.model';
 import { Observable } from 'rxjs';
 
 
@@ -14,18 +14,22 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  private userUrl = '/userJobAttributes';
+  private userUrl = '//localhost:8080/api/userJobAttributes';
 
   getUsers(): Observable<any> {
     return this.http.get('//localhost:8080/api/userJobAttributes');
   }
 
-  public deleteUser(userjobattributes) {
-    return this.http.delete(this.userUrl + '/' + userjobattributes.id);
+  getUserByEmail(email: string): Observable<any> {
+    return this.http.get(this.userUrl + '/' + email);
   }
 
-  public createUser(userjobattributes) {
-    return this.http.post<User>(this.userUrl, userjobattributes);
+  public deleteUser(email: string) {
+    return this.http.delete(this.userUrl + '/' + email);
+  }
+
+  public createUser(userjobattributes: JobUser) {
+    return this.http.post<JobUser>(this.userUrl, userjobattributes);
   }
 
 }

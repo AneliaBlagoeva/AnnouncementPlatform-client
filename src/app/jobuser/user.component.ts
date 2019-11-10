@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { User } from '../models/user.model';
+import { JobUser } from '../models/jobuser.model';
 import { UserService } from './user.service';
 
 @Component({
@@ -11,7 +11,7 @@ import { UserService } from './user.service';
 })
 export class UserComponent implements OnInit {
 
-  userjobattributes: User[];
+  userjobattributes: JobUser[];
 
   constructor(private router: Router, private userService: UserService) {
 
@@ -24,8 +24,8 @@ export class UserComponent implements OnInit {
       });
   };
 
-  deleteUser(userjobattributes: User): void {
-    this.userService.deleteUser(userjobattributes)
+  deleteUser(userjobattributes: JobUser): void {
+    this.userService.deleteUser(userjobattributes.email)
       .subscribe( data => {
         this.userjobattributes = this.userjobattributes.filter(u => u !== userjobattributes);
       })
