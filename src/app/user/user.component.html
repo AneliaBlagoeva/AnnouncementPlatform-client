@@ -1,0 +1,19 @@
+<div class="col-md-6">
+<h2> User Details</h2>
+
+<table class="table table-striped">
+  <tbody>
+  <tr *ngFor="let uj of userjobattributes">
+    <td>{{uj.email}}</td>
+    <td>{{uj.user.firstname}}</td>
+    <td>{{uj.user.lastname}}</td>
+    <td>{{uj.user.phone}}</td>
+    <td>{{uj.user.city}}</td>
+    <td>{{uj.user.country}}</td>
+    <td>{{uj.user.age}}</td>
+    <td>{{uj.experience}}</td>
+    <td>{{uj.skills}}</td>
+  </tr>
+  </tbody>
+</table>
+</div>
