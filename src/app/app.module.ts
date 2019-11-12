@@ -3,15 +3,15 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { UserComponent } from './jobuser/user.component';
+import { JobUserComponent } from './jobuser/jobuser.component';
 import { AppRoutingModule } from './app-routing.module';
-import {UserService} from './jobuser/user.service';
+import {JobUserService} from './jobuser/jobuser.service';
 import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserComponent,
+    JobUserComponent,
   ],
   imports: [
     BrowserModule,
@@ -19,7 +19,7 @@ import {HttpClientModule} from "@angular/common/http";
     HttpClientModule,
     FormsModule
   ],
-  providers: [UserService],
+  providers: [JobUserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

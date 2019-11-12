@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { UserComponent } from './jobuser/user.component';
+import { JobUserComponent } from './jobuser/jobuser.component';
 
 const routes: Routes = [
-  { path: 'userJobAttributes', component: UserComponent },
+  { path: 'userJobAttributes', component: JobUserComponent },
 ];
 
 @NgModule({

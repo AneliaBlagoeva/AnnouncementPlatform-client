@@ -2,18 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { JobUser } from '../models/jobuser.model';
-import { UserService } from './user.service';
+import { JobUserService } from './jobuser.service';
 
-@Component({
+@Component ({
   selector: 'app-user',
-  templateUrl: './user.component.html',
+  templateUrl: './jobuser.component.html',
   styles: []
 })
-export class UserComponent implements OnInit {
+export class JobUserComponent implements OnInit {
 
   userjobattributes: JobUser[];
 
-  constructor(private router: Router, private userService: UserService) {
+  constructor(private router: Router, private userService: JobUserService) {
 
   }
 
