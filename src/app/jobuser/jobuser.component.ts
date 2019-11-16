@@ -22,13 +22,12 @@ export class JobUserComponent implements OnInit {
       .subscribe( data => {
         this.userjobattributes = data;
       });
-  };
+  }
 
   deleteUser(userjobattributes: JobUser): void {
     this.userService.deleteUser(userjobattributes.email)
       .subscribe( data => {
         this.userjobattributes = this.userjobattributes.filter(u => u !== userjobattributes);
-      })
-  };
-
+      });
+  }
 }

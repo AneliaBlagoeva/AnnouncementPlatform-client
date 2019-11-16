@@ -9,6 +9,7 @@ export class JobUser {
     country: string;
     firstname: string;
     lastname: string;
+    role:Int16Array;
   }
   skills: string;
   experience: Int16Array;

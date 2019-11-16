@@ -17,7 +17,7 @@ export class JobUserService {
   private userUrl = '//localhost:8080/api/userJobAttributes';
 
   getUsers(): Observable<any> {
-    return this.http.get('//localhost:8080/api/userJobAttributes');
+    return this.http.get(this.userUrl);
   }
 
   getUserByEmail(email: string): Observable<any> {
