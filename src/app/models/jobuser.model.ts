@@ -9,7 +9,10 @@ export class JobUser {
     country: string;
     fName: string;
     lName: string;
-    roleId: Int16Array;
+    role:
+    {
+      description: string;
+    }
     password: string;
   };
   skills: string;
