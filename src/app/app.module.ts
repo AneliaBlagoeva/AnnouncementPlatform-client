@@ -5,17 +5,18 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { JobUserComponent } from './jobuser/jobuser.component';
 import { AppRoutingModule } from './app-routing.module';
-import {JobUserService} from './jobuser/jobuser.service';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { TokenInterceptor } from './interceptors/TokenInterceptor';
+import { JobUserService } from './jobuser/jobuser.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     JobUserComponent,
     LoginComponent,
-    RegisterComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +25,14 @@ import { RegisterComponent } from './auth/register/register.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [JobUserService],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    },
+    JobUserService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

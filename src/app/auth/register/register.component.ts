@@ -22,9 +22,14 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
-      fullName : ['', Validators.required],
+      firstname : ['', Validators.required],
       email : ['', Validators.required],
-      password : ['', Validators.required]
+      password : ['', Validators.required],
+      lastname : ['', Validators.required],
+      phone : ['', Validators.required],
+      age : ['', Validators.required],
+      country : ['', Validators.required],
+      city : ['', Validators.required]
     });
   }
 
@@ -32,7 +37,9 @@ export class RegisterComponent implements OnInit {
     get f() { return this.registerForm.controls; }
 
   onFormSubmit() {
-    this.authService.register(this.f.fullName.value, this.f.email.value, this.f.password.value)
+    this.authService.register(this.f.firstname.value, this.f.email.value, this.f.password.value,
+                              this.f.lastname.value, this.f.phone.value, this.f.city.value,
+                              this.f.country.value, this.f.age.value)
       .subscribe(res => {
         this.router.navigate(['']);
       }, (err) => {

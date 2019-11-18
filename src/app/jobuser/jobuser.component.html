@@ -4,16 +4,22 @@
 <table class="table table-striped">
   <tbody>
   <tr *ngFor="let uj of userjobattributes">
+    <td>{{uj.user.role.description}}</td>
     <td>{{uj.email}}</td>
-    <td>{{uj.user.firstname}}</td>
-    <td>{{uj.user.lastname}}</td>
+    <td>{{uj.user.fName}}</td>
+    <td>{{uj.user.lName}}</td>
     <td>{{uj.user.phone}}</td>
     <td>{{uj.user.city}}</td>
     <td>{{uj.user.country}}</td>
     <td>{{uj.user.age}}</td>
     <td>{{uj.experience}}</td>
     <td>{{uj.skills}}</td>
+    <td>{{uj.user.password}}</td>
+    
   </tr>
+  <div class="button-row">
+      <button type="button" (click)="logout()">Logout</button>
+    </div>
   </tbody>
 </table>
 </div>

@@ -17,15 +17,18 @@ redirectUrl: string;
 
 constructor(private http: HttpClient) { }
 
-login(data: any,pass:any): Observable<any> {
-    return this.http.post<any>('http://localhost:8080/api/auth/login', {data,pass})
-      .pipe(map(user => {
+login(data: any,pass: any): Observable<any> {
+    return this.http.post<any>('http://localhost:8080/api/auth/login', {email: data,password: pass})
+      .pipe(
+        map(user => {
         console.log(user);
         if (user && user.accessToken) {
         localStorage.setItem('currentUser', JSON.stringify(user));
         }
         return user;
-       }));
+       }),
+       tap(_ => this.isLoggedIn = true)
+       );
   }
 
   logout(): Observable<any> {
@@ -36,10 +39,9 @@ login(data: any,pass:any): Observable<any> {
       );
   }
 
-  register(fullName: any, em:any, pass:any): Observable<any> {
+  register(fullName: any, em: any, pass: any, lastname: any, phone: any, c: any, cntry: any, age: any): Observable<any> {
     // tslint:disable-next-line: max-line-length
-    return this.http.post<RegisterUser>('http://localhost:8080/api/auth/register', {email : em, fName : fullName, lName:'bl' , age: 100, city : 'Sof', phone : '9888888888', country:'bg', password : pass, role: {
-                id: 2,
+    return this.http.post<RegisterUser>('http://localhost:8080/api/auth/register', {email : em, fName : fullName, lName: lastname , age: age, city : c, phone : phone, country: cntry, password : pass, role: {
                 description: 'USER'
             }})
       .pipe(

@@ -7,10 +7,11 @@ export class JobUser {
     age: Int16Array;
     city: string;
     country: string;
-    firstname: string;
-    lastname: string;
-    role:Int16Array;
-  }
+    fName: string;
+    lName: string;
+    roleId: Int16Array;
+    password: string;
+  };
   skills: string;
   experience: Int16Array;
 }

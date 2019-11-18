@@ -30,4 +30,9 @@ export class JobUserComponent implements OnInit {
         this.userjobattributes = this.userjobattributes.filter(u => u !== userjobattributes);
       });
   }
+
+  logout(){
+  localStorage.removeItem('token');
+  this.router.navigate(['login']);
+  }
 }

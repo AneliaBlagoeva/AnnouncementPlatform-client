@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
         this.authService.logout();
 
         // get return url from route parameters or default to '/'
-        this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/';
+        this.returnUrl = '/userJobAttributes';
     }
 
     // convenience getter for easy access to form fields
@@ -54,10 +54,12 @@ export class LoginComponent implements OnInit {
         this.loading = true;
         this.authService.login(this.f.username.value, this.f.password.value)
             .pipe(first())
-            .subscribe(
-                data => {
-                    this.router.navigate([this.returnUrl]);
-                },
+            .subscribe(res=>{
+                if (res.token) {
+                    localStorage.setItem('token', res.token);
+                    this.router.navigate(['userJobAttributes']);
+                    }
+                  },
                 error => {
                     this.error = error;
                     this.loading = false;
