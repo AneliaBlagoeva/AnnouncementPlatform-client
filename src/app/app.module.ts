@@ -3,18 +3,27 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
+import { UserComponent } from './user/user.component';
 import { JobUserComponent } from './jobuser/jobuser.component';
+import { VolunteerUserComponent } from './volunteeruser/volunteeruser.component';
+import { StudentUserComponent } from './studentuser/studentuser.component';
 import { AppRoutingModule } from './app-routing.module';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { TokenInterceptor } from './interceptors/TokenInterceptor';
 import { JobUserService } from './jobuser/jobuser.service';
+import { UserService } from './user/user.service';
+import { StudentUserService } from './studentuser/studentuser.service'
+import { VolunteerUserService } from './volunteeruser/volunteeruser.service'
 
 @NgModule({
   declarations: [
     AppComponent,
     JobUserComponent,
+    UserComponent,
+    StudentUserComponent,
+    VolunteerUserComponent,
     LoginComponent,
     RegisterComponent
   ],
@@ -31,7 +40,10 @@ import { JobUserService } from './jobuser/jobuser.service';
       useClass: TokenInterceptor,
       multi: true
     },
-    JobUserService
+    JobUserService,
+    StudentUserService,
+    VolunteerUserService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

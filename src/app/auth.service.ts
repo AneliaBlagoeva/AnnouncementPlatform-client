@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { tap, catchError, map } from 'rxjs/operators';
-import { RegisterUser } from './models/registeruser.model';
 
 const apiUrl = 'http://localhost:8080/api/auth/';
 
@@ -41,7 +40,7 @@ login(data: any,pass: any): Observable<any> {
 
   register(fullName: any, em: any, pass: any, lastname: any, phone: any, c: any, cntry: any, age: any): Observable<any> {
     // tslint:disable-next-line: max-line-length
-    return this.http.post<RegisterUser>('http://localhost:8080/api/auth/register', {email : em, fName : fullName, lName: lastname , age: age, city : c, phone : phone, country: cntry, password : pass, role: {
+    return this.http.post<any>('http://localhost:8080/api/auth/register', {email : em, fName : fullName, lName: lastname , age: age, city : c, phone : phone, country: cntry, password : pass, role: {
                 description: 'USER'
             }})
       .pipe(
