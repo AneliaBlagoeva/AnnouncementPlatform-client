@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { VolunteerUserService } from './volunteeruser.service';
 
-describe('VolunteeruserService', () => {
+describe('VolunteerUserService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {

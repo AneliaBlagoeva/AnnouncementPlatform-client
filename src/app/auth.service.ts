@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { tap, catchError, map } from 'rxjs/operators';
+import { tap, catchError, map, mapTo } from 'rxjs/operators';
+import { User } from './models/user.model';
 
 const apiUrl = 'http://localhost:8080/api/auth/';
 
@@ -16,18 +17,18 @@ redirectUrl: string;
 
 constructor(private http: HttpClient) { }
 
-login(data: any,pass: any): Observable<any> {
-    return this.http.post<any>('http://localhost:8080/api/auth/login', {email: data,password: pass})
-      .pipe(
-        map(user => {
-        console.log(user);
-        if (user && user.accessToken) {
-        localStorage.setItem('currentUser', JSON.stringify(user));
-        }
-        return user;
-       }),
-       tap(_ => this.isLoggedIn = true)
-       );
+login(data: any,pass:any): Observable<any> {
+  return this.http.post<User>('http://localhost:8080/api/auth/login', {email: data,password: pass})
+  .pipe(
+    map(user => {
+    console.log(user);
+    if (user){
+    localStorage.setItem('currentUser', JSON.stringify(user));
+    }
+    return user;
+   }),
+   tap(_ => this.isLoggedIn = true)
+   );
   }
 
   logout(): Observable<any> {
@@ -38,9 +39,9 @@ login(data: any,pass: any): Observable<any> {
       );
   }
 
-  register(fullName: any, em: any, pass: any, lastname: any, phone: any, c: any, cntry: any, age: any): Observable<any> {
+  register(fullName: any, em:any, pass:any, lastname: any, phone:any, c:any, cntry:any, age:any): Observable<any> {
     // tslint:disable-next-line: max-line-length
-    return this.http.post<any>('http://localhost:8080/api/auth/register', {email : em, fName : fullName, lName: lastname , age: age, city : c, phone : phone, country: cntry, password : pass, role: {
+    return this.http.post<any>('http://localhost:8080/api/auth/register', {email : em, fName : fullName, lName:lastname , age: age, city : c, phone : phone, country:cntry, password : pass, role: {
                 description: 'USER'
             }})
       .pipe(

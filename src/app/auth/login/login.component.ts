@@ -56,9 +56,18 @@ export class LoginComponent implements OnInit {
             .pipe(first())
             .subscribe(res=>{
                 if (res.token) {
+                    localStorage.setItem("currentUserEmail",JSON.stringify(res.username));
                     localStorage.setItem('token', res.token);
-                    this.router.navigate(['userJobAttributes']);
+                    localStorage.setItem('currentUserRole', res.role.description);
+                    
+                    let role =res.role.description;
+                    if(role=="ADMIN")
+                    {
+                    this.router.navigate(['homepageAdmin']);
+                    }else{
+                        this.router.navigate(['homepageAuthUser']);
                     }
+                }
                   },
                 error => {
                     this.error = error;

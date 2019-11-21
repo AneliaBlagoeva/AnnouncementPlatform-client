@@ -11,11 +11,13 @@ import { AppRoutingModule } from './app-routing.module';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { HomePageAdminComponent } from './homepageadmin/homepageadmin.component';
 import { TokenInterceptor } from './interceptors/TokenInterceptor';
 import { JobUserService } from './jobuser/jobuser.service';
 import { UserService } from './user/user.service';
 import { StudentUserService } from './studentuser/studentuser.service'
 import { VolunteerUserService } from './volunteeruser/volunteeruser.service'
+import { ViewProfileComponent } from './viewprofile/viewprofile.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { VolunteerUserService } from './volunteeruser/volunteeruser.service'
     StudentUserComponent,
     VolunteerUserComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    HomePageAdminComponent,
+    ViewProfileComponent
   ],
   imports: [
     BrowserModule,
