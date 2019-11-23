@@ -4,7 +4,7 @@ import { User } from '../models/user.model';
 import { UserService } from '../user/user.service';
 import { Router } from '@angular/router';
 
-@Component ({
+@Component({
   selector: 'app-user',
   templateUrl: './viewprofile.component.html',
   styles: []
@@ -14,19 +14,33 @@ export class ViewProfileComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private userService: UserService) {}
+    private userService: UserService) { }
 
   ngOnInit() {
     let em = localStorage.getItem('currentUserEmail');
-    
+
     this.userService.getUserByEmail(em.substring(1, em.length - 1))
-    .subscribe( data => {
-      this.userattributes = data;
-    })
+      .subscribe(data => {
+        this.userattributes = data;
+      })
   }
 
-  logout(){
-  localStorage.removeItem('token');
-  this.router.navigate(['login']);
+  edit() {
+    this.userattributes.isEditable = true;
+  }
+
+  save(user: User) {
+    this.userService.editUser(user)
+      .subscribe(res => {
+        this.router.navigate(['homepageAdmin/viewProfile']);
+      }, (err) => {
+        console.log(err);
+        alert(err.error);
+      });
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+    this.router.navigate(['login']);
   }
 }

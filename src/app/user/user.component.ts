@@ -31,6 +31,13 @@ export class UserComponent implements OnInit {
       })
   };
 
+  editUser(user: User): void {
+    this.userService.editUser(user)
+      .subscribe( data => {
+        this.userattributes = this.userattributes.filter(u => u !== user);
+      })
+  };
+
   logout(){
   localStorage.removeItem('token');
   this.router.navigate(['login']);

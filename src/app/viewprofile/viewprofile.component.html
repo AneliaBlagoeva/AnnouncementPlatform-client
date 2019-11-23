@@ -6,13 +6,23 @@
             <tr>
             <td>{{userattributes.email}}</td>
             <td>{{userattributes.role.description}}</td>
-            <td>{{userattributes.fName}}</td>
+            <td>
+              <input type="text" [(ngModel)]="userattributes.fName"  [disabled]="!userattributes.isEditable">
+                {{userattributes.fName}}
+            </td>
             <td>{{userattributes.lName}}</td>
             <td>{{userattributes.phone}}</td>
             <td>{{userattributes.city}}</td>
             <td>{{userattributes.country}}</td>
             <td>{{userattributes.age}}</td>
             <td>{{userattributes.password}}</td>
+        </tr>
+        <tr>
+          <button (click)="edit()" *ngIf="!userattributes.isEditable">Edit</button>
+        </tr>
+
+        <tr>
+          <button (click)="save(userattributes)">Save</button>
         </tr>
           </tbody>
         </table>

@@ -26,12 +26,16 @@ export class UserService {
     return this.http.get(this.userUrl + '/' + email);
   }
 
-  public deleteUser(user:User) {
+  public deleteUser(user: User) {
     return this.http.delete(this.userUrl + '/' + user.email);
   }
 
   public createUser(user: User) {
     return this.http.post<User>(this.userUrl, user);
+  }
+
+  public editUser(user: User) {
+    return this.http.put<User>(this.userUrl, user);
   }
 
 }
