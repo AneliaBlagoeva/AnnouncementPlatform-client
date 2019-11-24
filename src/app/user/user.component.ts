@@ -28,15 +28,15 @@ export class UserComponent implements OnInit {
     this.userService.deleteUser(user)
       .subscribe( data => {
         this.userattributes = this.userattributes.filter(u => u !== user);
-      })
-  };
+      });
+  }
 
   editUser(user: User): void {
     this.userService.editUser(user)
       .subscribe( data => {
         this.userattributes = this.userattributes.filter(u => u !== user);
-      })
-  };
+      });
+  }
 
   logout(){
   localStorage.removeItem('token');

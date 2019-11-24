@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from '../models/user.model';
+import { UserService } from '../user/user.service';
 
 @Component({
   selector: 'app-homepageauthuser',
@@ -8,11 +10,27 @@ import { Router } from '@angular/router';
 })
 export class HomepageauthuserComponent implements OnInit {
 
-  constructor(private router: Router) {
+   user: User;
 
-  }
+  constructor(
+    private router: Router,
+    private userService: UserService) {}
 
   ngOnInit() {
+    const em = localStorage.getItem('currentUserEmail');
+
+    this.userService.getUserByEmail(em.substring(1, em.length - 1))
+      .subscribe(data => {
+        this.user = data;
+      });
+  }
+
+  deleteUser(): void {
+     this.userService.deleteUser(this.user)
+      .subscribe( data => {
+         this.router.navigate(['login']);
+      });
+
   }
 
   logout() {
