@@ -21,6 +21,7 @@ import { VolunteerUserService } from './volunteeruser/volunteeruser.service'
 import { ViewProfileComponent } from './viewprofile/viewprofile.component';
 import { ChangepasswordComponent } from './changepassword/changepassword.component';
 import { AuthService } from './auth.service';
+import { AnnouncementsComponent } from './announcements/announcements.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { AuthService } from './auth.service';
     HomePageAdminComponent,
     ViewProfileComponent,
     ChangepasswordComponent,
-    HomepageauthuserComponent
+    HomepageauthuserComponent,
+    AnnouncementsComponent
   ],
   imports: [
     BrowserModule,

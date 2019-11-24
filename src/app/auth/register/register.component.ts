@@ -15,10 +15,13 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   isLoadingResults = false;
   matcher = new MyErrorStateMatcher();
+  worker: boolean;
+  student: boolean;
+  volunteer: boolean;
 
-  constructor(private formBuilder: FormBuilder, 
-    private router: Router, 
-    private authService: AuthService) { }
+  constructor(private formBuilder: FormBuilder,
+              private router: Router,
+              private authService: AuthService) { }
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
@@ -41,7 +44,11 @@ export class RegisterComponent implements OnInit {
                               this.f.lastname.value, this.f.phone.value, this.f.city.value,
                               this.f.country.value, this.f.age.value)
       .subscribe(res => {
+        if (this.worker) {
         this.router.navigate(['']);
+        } else {
+          this.router.navigate(['login']);
+        }
       }, (err) => {
         console.log(err);
         alert(err.error);

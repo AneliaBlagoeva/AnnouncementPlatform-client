@@ -3,12 +3,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { User } from '../models/user.model';
 import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
-
-
-const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-};
 
 @Injectable()
 export class UserService {

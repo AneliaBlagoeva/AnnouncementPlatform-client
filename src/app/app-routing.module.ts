@@ -13,6 +13,7 @@ import { HomepageauthuserComponent } from './homepageauthuser/homepageauthuser.c
 
 import { AuthGuard } from './auth/auth.guard';
 import { ChangepasswordComponent } from './changepassword/changepassword.component';
+import { AnnouncementsComponent } from './announcements/announcements.component';
 
 
 const routes: Routes = [
@@ -25,7 +26,8 @@ const routes: Routes = [
   { path: 'homepageAdmin/volunteerAttributes', component: VolunteerUserComponent},
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'changePass', component: ChangepasswordComponent }
+  { path: 'changePass', component: ChangepasswordComponent },
+  { path: 'announcements', component: AnnouncementsComponent }
 ];
 
 @NgModule({
