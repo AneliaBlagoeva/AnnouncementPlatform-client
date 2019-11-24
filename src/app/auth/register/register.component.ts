@@ -32,7 +32,10 @@ export class RegisterComponent implements OnInit {
       phone : ['', Validators.required],
       age : ['', Validators.required],
       country : ['', Validators.required],
-      city : ['', Validators.required]
+      city : ['', Validators.required],
+      worker : [false, Validators.required],
+      student : [false, Validators.required],
+      volunteer : [false, Validators.required]
     });
   }
 
@@ -44,7 +47,7 @@ export class RegisterComponent implements OnInit {
                               this.f.lastname.value, this.f.phone.value, this.f.city.value,
                               this.f.country.value, this.f.age.value)
       .subscribe(res => {
-        if (this.worker) {
+        if (this.f.worker.value) {
         this.router.navigate(['']);
         } else {
           this.router.navigate(['login']);
