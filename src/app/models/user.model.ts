@@ -1,15 +1,14 @@
 export class User {
-      email: string;
-      phone: string;
-      age: Int16Array;
-      city: string;
-      country: string;
-      fName: string;
-      lName: string;
+      email: null;
+      phone: null;
+      age: null;
+      city: null;
+      country: null;
+      fName: null;
+      lName: null;
        role:
     {
-      description: string;
-    }
-      password: string;
-      isEditable: boolean;
+      description: null;
+    };
+      password: null;
   }

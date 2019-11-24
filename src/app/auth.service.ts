@@ -52,6 +52,17 @@ export class AuthService {
       );
   }
 
+  changePass(em: any, pass: any): Observable<any> {
+    // tslint:disable-next-line: max-line-length
+    return this.http.post<any>('http://localhost:8080/api/auth/changePass', {
+      email: em, password: pass
+    })
+      .pipe(
+        tap(_ => this.log('changepass')),
+        catchError(this.handleError('changepass', []))
+      );
+  }
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 

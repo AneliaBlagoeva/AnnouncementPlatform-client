@@ -12,12 +12,15 @@ import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { HomePageAdminComponent } from './homepageadmin/homepageadmin.component';
+import { HomepageauthuserComponent } from './homepageauthuser/homepageauthuser.component';
 import { TokenInterceptor } from './interceptors/TokenInterceptor';
 import { JobUserService } from './jobuser/jobuser.service';
 import { UserService } from './user/user.service';
 import { StudentUserService } from './studentuser/studentuser.service'
 import { VolunteerUserService } from './volunteeruser/volunteeruser.service'
 import { ViewProfileComponent } from './viewprofile/viewprofile.component';
+import { ChangepasswordComponent } from './changepassword/changepassword.component';
+import { AuthService } from './auth.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,9 @@ import { ViewProfileComponent } from './viewprofile/viewprofile.component';
     LoginComponent,
     RegisterComponent,
     HomePageAdminComponent,
-    ViewProfileComponent
+    ViewProfileComponent,
+    ChangepasswordComponent,
+    HomepageauthuserComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +52,8 @@ import { ViewProfileComponent } from './viewprofile/viewprofile.component';
     JobUserService,
     StudentUserService,
     VolunteerUserService,
-    UserService
+    UserService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

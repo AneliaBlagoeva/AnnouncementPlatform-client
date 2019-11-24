@@ -1,1 +1,12 @@
-<div> Welcome user</div>
+<div class="container-fluid">
+        <div class="col-md-offset-1">
+          <h1>
+            Welcome User !
+          </h1>
+        </div>
+        
+        <a routerLink="/viewProfile"> View my profile</a><br>
+        <button (click)="delete()">Delete</button> 
+        <br/>
+        <router-outlet></router-outlet>
+        </div>

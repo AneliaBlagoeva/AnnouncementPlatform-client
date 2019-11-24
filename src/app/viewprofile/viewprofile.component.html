@@ -5,24 +5,35 @@
           <tbody>
             <tr>
             <td>{{userattributes.email}}</td>
-            <td>{{userattributes.role.description}}</td>
             <td>
-              <input type="text" [(ngModel)]="userattributes.fName"  [disabled]="!userattributes.isEditable">
-                {{userattributes.fName}}
+              <input type="text" [(ngModel)]="this.userattributes.fName"  [disabled]="!this.isEditable">
             </td>
-            <td>{{userattributes.lName}}</td>
-            <td>{{userattributes.phone}}</td>
-            <td>{{userattributes.city}}</td>
-            <td>{{userattributes.country}}</td>
-            <td>{{userattributes.age}}</td>
-            <td>{{userattributes.password}}</td>
+            <td>
+               <input type="text" [(ngModel)]="this.userattributes.lName"  [disabled]="!this.isEditable">
+            </td>
+            <td>
+              <input type="text" [(ngModel)]="this.userattributes.phone"  [disabled]="!this.isEditable">
+            </td>
+            <td>
+              <input type="text" [(ngModel)]="this.userattributes.city"  [disabled]="!this.isEditable">
+            </td>
+            <td>
+              <input type="text" [(ngModel)]="this.userattributes.country"  [disabled]="!this.isEditable">
+            </td>
+            <td>
+              <input type="text" [(ngModel)]="this.userattributes.age"  [disabled]="!this.isEditable">
+            </td>
         </tr>
         <tr>
-          <button (click)="edit()" *ngIf="!userattributes.isEditable">Edit</button>
+          <button (click)="edit()" *ngIf="!this.isEditable">Edit</button>
         </tr>
 
         <tr>
           <button (click)="save(userattributes)">Save</button>
+        </tr>
+
+        <tr>
+          <button (click)="changePass()">Change my password</button>
         </tr>
           </tbody>
         </table>

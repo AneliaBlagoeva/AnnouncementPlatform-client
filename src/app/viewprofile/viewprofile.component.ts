@@ -10,7 +10,8 @@ import { Router } from '@angular/router';
   styles: []
 })
 export class ViewProfileComponent implements OnInit {
-  userattributes: User;
+  userattributes = new User();
+  isEditable: boolean;
 
   constructor(
     private router: Router,
@@ -26,17 +27,21 @@ export class ViewProfileComponent implements OnInit {
   }
 
   edit() {
-    this.userattributes.isEditable = true;
+    this.isEditable = true;
   }
 
   save(user: User) {
     this.userService.editUser(user)
       .subscribe(res => {
-        this.router.navigate(['homepageAdmin/viewProfile']);
+        this.router.navigate(['viewProfile']);
       }, (err) => {
         console.log(err);
         alert(err.error);
       });
+  }
+
+  changePass() {
+    this.router.navigate(['changePass']);
   }
 
   logout() {

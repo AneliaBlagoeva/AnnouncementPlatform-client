@@ -4,14 +4,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs/operators';
 import { AuthService } from 'src/app/auth.service';
 
-@Component ({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+@Component({
+    selector: 'app-login',
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.css']
 })
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class LoginComponent implements OnInit {
 
@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
         private formBuilder: FormBuilder,
         private route: ActivatedRoute,
         private router: Router,
-        private authService: AuthService) {}
+        private authService: AuthService) { }
 
     ngOnInit() {
         this.loginForm = this.formBuilder.group({
@@ -54,21 +54,20 @@ export class LoginComponent implements OnInit {
         this.loading = true;
         this.authService.login(this.f.username.value, this.f.password.value)
             .pipe(first())
-            .subscribe(res=>{
+            .subscribe(res => {
                 if (res.token) {
-                    localStorage.setItem("currentUserEmail",JSON.stringify(res.username));
+                    localStorage.setItem('currentUserEmail', JSON.stringify(res.username));
                     localStorage.setItem('token', res.token);
                     localStorage.setItem('currentUserRole', res.role.description);
-                    
-                    let role =res.role.description;
-                    if(role=="ADMIN")
-                    {
-                    this.router.navigate(['homepageAdmin']);
-                    }else{
-                        this.router.navigate(['homepageAuthUser']);
+
+                    // tslint:disable-next-line: triple-equals
+                    if (res.role.description == 'ADMIN') {
+                        this.router.navigate(['homepageAdmin']);
+                    } else {
+                        this.router.navigate(['homepageAuthuser']);
                     }
                 }
-                  },
+            },
                 error => {
                     this.error = error;
                     this.loading = false;
