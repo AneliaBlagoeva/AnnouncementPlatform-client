@@ -42,19 +42,7 @@
             <input  formControlName="password" placeholder="Password">
             <span *ngIf="!registerForm.get('password').valid && registerForm.get('password').touched">Please enter your password</span>
           </div>
-        <div class="form-group">
-           <label>Worker</label>
-           <input type="checkbox" formControlName="worker">
-        </div>
-        <div class="form-group">
-           <label>Student</label>
-           <input type="checkbox" formControlName="student">
-        </div>
-        <div class="form-group">
-           <label>Volunteer</label>
-           <input type="checkbox" formControlName="volunteer">
-        </div>
-            <div class="button-row">
+         <div class="button-row">
           <button type="submit" >Register</button>
         </div>
       </form>

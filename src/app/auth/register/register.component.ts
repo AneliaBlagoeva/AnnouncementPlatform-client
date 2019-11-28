@@ -15,9 +15,6 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   isLoadingResults = false;
   matcher = new MyErrorStateMatcher();
-  worker: boolean;
-  student: boolean;
-  volunteer: boolean;
 
   constructor(private formBuilder: FormBuilder,
               private router: Router,
@@ -32,10 +29,7 @@ export class RegisterComponent implements OnInit {
       phone : ['', Validators.required],
       age : ['', Validators.required],
       country : ['', Validators.required],
-      city : ['', Validators.required],
-      worker : [false, Validators.required],
-      student : [false, Validators.required],
-      volunteer : [false, Validators.required]
+      city : ['', Validators.required]
     });
   }
 
@@ -47,11 +41,7 @@ export class RegisterComponent implements OnInit {
                               this.f.lastname.value, this.f.phone.value, this.f.city.value,
                               this.f.country.value, this.f.age.value)
       .subscribe(res => {
-        if (this.f.worker.value) {
         this.router.navigate(['']);
-        } else {
-          this.router.navigate(['login']);
-        }
       }, (err) => {
         console.log(err);
         alert(err.error);

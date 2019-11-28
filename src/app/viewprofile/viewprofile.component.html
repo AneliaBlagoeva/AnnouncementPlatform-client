@@ -1,40 +1,99 @@
 <div class="col-md-6">
-        <h2> User Details</h2>
-        
-        <table class="table table-striped">
-          <tbody>
-            <tr>
-            <td>{{userattributes.email}}</td>
-            <td>
-              <input type="text" [(ngModel)]="this.userattributes.fName"  [disabled]="!this.isEditable">
-            </td>
-            <td>
-               <input type="text" [(ngModel)]="this.userattributes.lName"  [disabled]="!this.isEditable">
-            </td>
-            <td>
-              <input type="text" [(ngModel)]="this.userattributes.phone"  [disabled]="!this.isEditable">
-            </td>
-            <td>
-              <input type="text" [(ngModel)]="this.userattributes.city"  [disabled]="!this.isEditable">
-            </td>
-            <td>
-              <input type="text" [(ngModel)]="this.userattributes.country"  [disabled]="!this.isEditable">
-            </td>
-            <td>
-              <input type="text" [(ngModel)]="this.userattributes.age"  [disabled]="!this.isEditable">
-            </td>
-        </tr>
-        <tr>
-          <button (click)="edit()" *ngIf="!this.isEditable">Edit</button>
-        </tr>
+  <h2> User Details</h2>
 
-        <tr>
-          <button (click)="save(userattributes)">Save</button>
-        </tr>
+  <table class="table table-striped">
+    <tbody>
+      <tr>
+        <td>{{userattributes.email}}</td>
+        <td>
+          <label>First Name</label>
+          <input type="text" [(ngModel)]="this.userattributes.fName" [disabled]="!this.isEditable">
+        </td>
+        <td>
+            <label>Last Name</label>
+          <input type="text" [(ngModel)]="this.userattributes.lName" [disabled]="!this.isEditable">
+        </td>
+        <td>
+            <label>Phone</label>
+          <input type="text" [(ngModel)]="this.userattributes.phone" [disabled]="!this.isEditable">
+        </td>
+        <td>
+            <label>City</label>
+          <input type="text" [(ngModel)]="this.userattributes.city" [disabled]="!this.isEditable">
+        </td>
+        <td>
+            <label>Country</label>
+          <input type="text" [(ngModel)]="this.userattributes.country" [disabled]="!this.isEditable">
+        </td>
+        <td>
+            <label>Age</label>
+          <input type="text" [(ngModel)]="this.userattributes.age" [disabled]="!this.isEditable">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label>Worker</label>
+          <input type="checkbox" [(ngModel)]="this.isWorker" [disabled]="!this.isEditable">
+        </td>
+        <td>
+          <label>Student</label>
+          <input type="checkbox" [(ngModel)]="this.isStudent" [disabled]="!this.isEditable">
+        </td>
+        <td>
+          <label>Volunteer</label>
+          <input type="checkbox" [(ngModel)]="this.isVolunteer" [disabled]="!this.isEditable">
+        </td>
+      </tr>
+      <tr>
+        <td>
+            <label>Skills</label>
+          <input type="text" [(ngModel)]="this.jobuserattributes.skills"
+            [disabled]="!(this.isEditable && this.isWorker)">
+        </td>
+        <td>
+            <label>Experiance</label>
+          <input type="text" [(ngModel)]="this.jobuserattributes.experience"
+            [disabled]="!(this.isEditable && this.isWorker)">
+        </td>
+      </tr>
+      <tr>
+        <td>
+            <label>Grade</label>
+          <input type="text" [(ngModel)]="this.studentuserattributes.grade"
+            [disabled]="!(this.isEditable && this.isStudent)">
+        </td>
+        <td>
+            <label>Degree</label>
+          <input type="text" [(ngModel)]="this.studentuserattributes.degree"
+            [disabled]="!(this.isEditable && this.isStudent)">
+        </td>
+        <td>
+            <label>University</label>
+            <input type="text" [(ngModel)]="this.studentuserattributes.university"
+              [disabled]="!(this.isEditable && this.isStudent)">
+        </td>
+        <td>
+            <label>Program</label>
+            <input type="text" [(ngModel)]="this.studentuserattributes.program"
+              [disabled]="!(this.isEditable && this.isStudent)">
+        </td>
+        <td>
+            <label>Year</label>
+            <input type="text" [(ngModel)]="this.studentuserattributes.year"
+              [disabled]="!(this.isEditable && this.isStudent)">
+        </td>
+      </tr>
+      <tr>
+        <button (click)="edit()" *ngIf="!this.isEditable">Edit</button>
+      </tr>
 
-        <tr>
-          <button (click)="changePass()">Change my password</button>
-        </tr>
-          </tbody>
-        </table>
-        </div>
+      <tr>
+        <button (click)="save(userattributes,jobuserattributes,studentuserattributes)">Save</button>
+      </tr>
+
+      <tr>
+        <button (click)="changePass()">Change my password</button>
+      </tr>
+    </tbody>
+  </table>
+</div>

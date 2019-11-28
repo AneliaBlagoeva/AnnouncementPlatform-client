@@ -24,10 +24,6 @@ export class JobUserService {
     return this.http.get(this.userUrl + '/' + email);
   }
 
-  public deleteUser(email: string) {
-    return this.http.delete(this.userUrl + '/' + email);
-  }
-
   public createUser(userjobattributes: JobUser) {
     return this.http.post<JobUser>(this.userUrl, userjobattributes);
   }

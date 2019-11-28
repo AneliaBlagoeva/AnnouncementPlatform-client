@@ -24,13 +24,6 @@ export class JobUserComponent implements OnInit {
       });
   }
 
-  deleteUser(userjobattributes: JobUser): void {
-    this.userService.deleteUser(userjobattributes.email)
-      .subscribe( data => {
-        this.userjobattributes = this.userjobattributes.filter(u => u !== userjobattributes);
-      });
-  }
-
   logout(){
   localStorage.removeItem('token');
   this.router.navigate(['login']);

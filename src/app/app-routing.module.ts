@@ -14,20 +14,22 @@ import { HomepageauthuserComponent } from './homepageauthuser/homepageauthuser.c
 import { AuthGuard } from './auth/auth.guard';
 import { ChangepasswordComponent } from './changepassword/changepassword.component';
 import { AnnouncementsComponent } from './announcements/announcements.component';
+import { JobAnnouncementsComponent } from './jobannouncements/jobannouncements.component';
 
 
 const routes: Routes = [
-  { path: 'homepageAdmin/userJobAttributes', component: JobUserComponent},
-  { path: 'homepageAdmin/userAttributes', component: UserComponent},
+  { path: 'userJobAttributes', component: JobUserComponent},
+  { path: 'userAttributes', component: UserComponent},
   { path: 'viewProfile', component: ViewProfileComponent},
   { path: 'homepageAdmin', component: HomePageAdminComponent},
   { path: 'homepageAuthuser', component: HomepageauthuserComponent},
-  { path: 'homepageAdmin/studentAttributes', component: StudentUserComponent},
-  { path: 'homepageAdmin/volunteerAttributes', component: VolunteerUserComponent},
+  { path: 'studentAttributes', component: StudentUserComponent},
+  { path: 'volunteerAttributes', component: VolunteerUserComponent},
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'changePass', component: ChangepasswordComponent },
-  { path: 'announcements', component: AnnouncementsComponent }
+  { path: 'announcements', component: AnnouncementsComponent },
+  { path: 'jobAnnouncements', component: JobAnnouncementsComponent }
 ];
 
 @NgModule({

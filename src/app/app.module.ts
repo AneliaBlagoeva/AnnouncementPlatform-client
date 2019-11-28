@@ -22,6 +22,8 @@ import { ViewProfileComponent } from './viewprofile/viewprofile.component';
 import { ChangepasswordComponent } from './changepassword/changepassword.component';
 import { AuthService } from './auth.service';
 import { AnnouncementsComponent } from './announcements/announcements.component';
+import { JobAnnouncementsComponent } from './jobannouncements/jobannouncements.component';
+import { JobAnnouncementService } from './jobannouncements/jobannouncements.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { AnnouncementsComponent } from './announcements/announcements.component'
     ViewProfileComponent,
     ChangepasswordComponent,
     HomepageauthuserComponent,
-    AnnouncementsComponent
+    AnnouncementsComponent,
+    JobAnnouncementsComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +58,8 @@ import { AnnouncementsComponent } from './announcements/announcements.component'
     StudentUserService,
     VolunteerUserService,
     UserService,
-    AuthService
+    AuthService,
+    JobAnnouncementService
   ],
   bootstrap: [AppComponent]
 })
