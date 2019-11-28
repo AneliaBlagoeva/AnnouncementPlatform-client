@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { JobAnnouncement } from '../models/jobannouncement.model';
 import { Router } from '@angular/router';
-import { JobAnnouncementService } from './jobannouncement.service';
+import { JobAnnouncementService } from './jobannouncements.service';
 
 @Component({
   selector: 'app-jobannouncements',
