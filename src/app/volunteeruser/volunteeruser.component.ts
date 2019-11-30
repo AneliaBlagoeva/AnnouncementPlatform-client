@@ -5,7 +5,7 @@ import { VolunteerUser } from '../models/volunteeruser.model';
 import { VolunteerUserService } from './volunteeruser.service';
 
 @Component ({
-  selector: 'app-user',
+  selector: 'app-volunteeruser',
   templateUrl: './volunteeruser.component.html',
   styles: []
 })

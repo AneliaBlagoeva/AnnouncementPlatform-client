@@ -24,6 +24,12 @@ import { AuthService } from './auth.service';
 import { AnnouncementsComponent } from './announcements/announcements.component';
 import { JobAnnouncementsComponent } from './jobannouncements/jobannouncements.component';
 import { JobAnnouncementService } from './jobannouncements/jobannouncements.service';
+import { ScholarshipAnnouncementComponent } from './scholarshipannouncements/scholarshipannouncements.component';
+import { ScholarshipAnnouncementService } from './scholarshipannouncements/scholarshipannouncements.service'
+import { VolunteerAnnouncementComponent } from './volunteerannouncements/volunteerannouncements.component';
+import { VolunteerAnnouncementService } from './volunteerannouncements/volunteerannouncement.service';
+import { AnnouncementsViewService } from './announcementsview/announcementsview.service';
+import { AnnouncementsViewComponent } from './announcementsview/announcementsview.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +45,10 @@ import { JobAnnouncementService } from './jobannouncements/jobannouncements.serv
     ChangepasswordComponent,
     HomepageauthuserComponent,
     AnnouncementsComponent,
-    JobAnnouncementsComponent
+    JobAnnouncementsComponent,
+    ScholarshipAnnouncementComponent,
+    VolunteerAnnouncementComponent,
+    AnnouncementsViewComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +68,10 @@ import { JobAnnouncementService } from './jobannouncements/jobannouncements.serv
     VolunteerUserService,
     UserService,
     AuthService,
-    JobAnnouncementService
+    JobAnnouncementService,
+    ScholarshipAnnouncementService,
+    VolunteerAnnouncementService,
+    AnnouncementsViewService
   ],
   bootstrap: [AppComponent]
 })

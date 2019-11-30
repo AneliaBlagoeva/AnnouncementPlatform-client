@@ -10,7 +10,7 @@ const httpOptions = {
 @Injectable({
     providedIn: 'root'
 })
-export class AnnouncementService {
+export class AnnouncementsViewService {
   router: any;
 
   constructor(private http: HttpClient) { }
@@ -19,14 +19,5 @@ export class AnnouncementService {
 
   getAnnouncements(): Observable<any> {
     return this.http.get('//localhost:8080/api/announcements');
-  }
-
-  public deleteAnn(announcement: Announcement) {
-    return this.http.delete(this.userUrl + '/' + announcement.anncmntId);
-  }
-
-
-  public editAnn(announcement: Announcement) {
-    return this.http.put<Announcement>(this.userUrl, announcement);
   }
 }

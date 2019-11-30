@@ -21,16 +21,16 @@ export class ViewProfileComponent implements OnInit {
   studentuserattributes = new StudentUser();
   volunteeruserattributes = new VolunteerUser();
   isEditable: boolean;
-  isWorker : boolean;
-  isStudent : boolean;
+  isWorker: boolean;
+  isStudent: boolean;
   isVolunteer: boolean;
 
   constructor(
     private router: Router,
     private userService: UserService,
-    private jobUserService : JobUserService,
-    private studentUserService : StudentUserService,
-    private volunteerUserService : VolunteerUserService) { }
+    private jobUserService: JobUserService,
+    private studentUserService: StudentUserService,
+    private volunteerUserService: VolunteerUserService) { }
 
   ngOnInit() {
     let em = localStorage.getItem('currentUserEmail');
@@ -39,7 +39,7 @@ export class ViewProfileComponent implements OnInit {
       .subscribe(data => {
         this.userattributes = data;
       })
-    
+
     this.jobUserService.getUserByEmail(em.substring(1, em.length - 1))
       .subscribe(data => {
         this.jobuserattributes = data;
@@ -49,57 +49,57 @@ export class ViewProfileComponent implements OnInit {
       .subscribe(data => {
         this.studentuserattributes = data;
       })
-    
+
   }
 
   edit() {
     this.isEditable = true;
   }
 
-  save(user: User,jobuser:JobUser, studentuser:StudentUser, volunteeruser:VolunteerUser) {
+  save(user: User, jobuser: JobUser, studentuser: StudentUser, volunteeruser: VolunteerUser) {
     this.userService.editUser(user)
       .subscribe(res => {
-        this.router.navigate(['viewProfile']);
+        //  this.router.navigate(['viewProfile']);
       }, (err) => {
         console.log(err);
         alert(err.error);
       });
 
-      jobuser.user=user;
-      jobuser.email=user.email;
+    if (this.isWorker) {
+      jobuser.user = user;
+      jobuser.email = user.email;
       this.jobUserService.createUser(jobuser)
-      .subscribe(res => {
-        //this.router.navigate(['viewProfile']);
-      }, (err) => {
-        console.log(err);
-        alert(err.error);
-      });
+        .subscribe(res => {
+          //this.router.navigate(['viewProfile']);
+        }, (err) => {
+          console.log(err);
+          alert(err.error);
+        });
+    }
 
-      if(this.isStudent)
-      {
-      studentuser.user=user;
-      studentuser.email=user.email;
+    if (this.isStudent) {
+      studentuser.user = user;
+      studentuser.email = user.email;
       this.studentUserService.createUser(studentuser)
-      .subscribe(res => {
-        //this.router.navigate(['viewProfile']);
-      }, (err) => {
-        console.log(err);
-        alert(err.error);
-      });
-      }
+        .subscribe(res => {
+          //this.router.navigate(['viewProfile']);
+        }, (err) => {
+          console.log(err);
+          alert(err.error);
+        });
+    }
 
-      if(this.isVolunteer)
-      {
-       volunteeruser.user=user;
-       volunteeruser.email=user.email;
-       this.volunteerUserService.createUser(volunteeruser)
-      .subscribe(res => {
-        //this.router.navigate(['viewProfile']);
-      }, (err) => {
-        console.log(err);
-        alert(err.error);
-      });
-      }
+    if (this.isVolunteer) {
+      volunteeruser.user = user;
+      volunteeruser.email = user.email;
+      this.volunteerUserService.createUser(volunteeruser)
+        .subscribe(res => {
+          this.router.navigate(['viewProfile']);
+        }, (err) => {
+          console.log(err);
+          alert(err.error);
+        });
+    }
 
 
   }

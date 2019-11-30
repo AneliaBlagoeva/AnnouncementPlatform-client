@@ -15,7 +15,9 @@ import { AuthGuard } from './auth/auth.guard';
 import { ChangepasswordComponent } from './changepassword/changepassword.component';
 import { AnnouncementsComponent } from './announcements/announcements.component';
 import { JobAnnouncementsComponent } from './jobannouncements/jobannouncements.component';
-
+import { ScholarshipAnnouncementComponent } from './scholarshipannouncements/scholarshipannouncements.component';
+import { VolunteerAnnouncementComponent } from './volunteerannouncements/volunteerannouncements.component';
+import { AnnouncementsViewComponent } from './announcementsview/announcementsview.component';
 
 const routes: Routes = [
   { path: 'userJobAttributes', component: JobUserComponent},
@@ -29,7 +31,10 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'changePass', component: ChangepasswordComponent },
   { path: 'announcements', component: AnnouncementsComponent },
-  { path: 'jobAnnouncements', component: JobAnnouncementsComponent }
+  { path: 'announcementsView', component: AnnouncementsViewComponent },
+  { path: 'jobAnnouncements', component: JobAnnouncementsComponent },
+  { path: 'scholarshipAnnouncements', component: ScholarshipAnnouncementComponent },
+  { path: 'volunteerAnnouncements', component: VolunteerAnnouncementComponent }
 ];
 
 @NgModule({

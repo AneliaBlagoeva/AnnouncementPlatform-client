@@ -1,18 +1,41 @@
 <div class="col-md-6">
-        <h2> Announcement Details</h2>
-        
-        <table class="table table-striped">
-          <tbody>
-          <tr *ngFor="let a of anns">
-            <td>{{a.anncmntId}}</td>
-            <td>{{a.anncmntName}}</td>
-            <td>{{a.category.categoryName}}</td>
-            <td>{{a.dateCreated}}</td>
-            <td>{{a.description}}</td>
-            <td>{{a.url}}</td>
-            <td>{{a.status.statusName}}</td>
-            <td>{{a.userEmail}}</td>
-        <tr>
-          </tbody>
-        </table>
-        </div>
+  <h2> Announcement Details</h2>
+
+  <table class="table table-striped">
+    <tbody>
+      <tr *ngFor="let a of anns">
+        <td>{{a.anncmntId}}</td>
+        <td>{{a.category.categoryName}}</td>
+        <td><select [(ngModel)]="this.a.status.statusId" id="#" [disabled]="!this.isEditable"
+          (ngModelChange)='onOptionsSelected($event)'>
+            <option value="1">active</option>
+            <option value="2">unactive</option>
+            
+            </select></td>
+        <td>
+          <label>Announcement Name</label>
+          <input type="text" [(ngModel)]="this.a.anncmntName" [disabled]="!this.isEditable">
+        </td>
+        <td>
+          <label>Date Created</label>
+          <input type="text" [(ngModel)]="this.a.dateCreated" [disabled]="!this.isEditable">
+        </td>
+
+        <td>
+          <label>Description</label>
+          <input type="text" [(ngModel)]="this.a.description" [disabled]="!this.isEditable">
+        </td>
+
+        <td>
+          <label>Url</label>
+          <input type="text" [(ngModel)]="this.a.url" [disabled]="!this.isEditable">
+        </td>
+
+        <td>{{a.userEmail}}</td>
+        <td><button class="btn btn-danger" (click)="deleteAnn(a)"> Delete announcement</button></td>
+        <td><button (click)="edit()" *ngIf="!this.isEditable">Edit</button></td>
+        <td><button (click)="save(a)" *ngIf="this.isEditable">Save</button></td>
+      <tr>
+    </tbody>
+  </table>
+</div>
