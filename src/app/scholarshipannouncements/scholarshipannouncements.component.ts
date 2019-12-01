@@ -12,6 +12,7 @@ import { ScholarshipAnnouncement } from '../models/scholarshipannouncement.model
 export class ScholarshipAnnouncementComponent implements OnInit {
 
   schAnns: ScholarshipAnnouncement[];
+  isEditable: boolean;
 
   constructor(
     private router: Router,
@@ -21,6 +22,21 @@ export class ScholarshipAnnouncementComponent implements OnInit {
     this.scholarshipAnnService.getScholarshipAnnouncements()
       .subscribe( data => {
         this.schAnns = data;
+      });
+  }
+
+  
+   edit() {
+    this.isEditable = true;
+  }
+
+  save(announcement: ScholarshipAnnouncement) {
+    this.scholarshipAnnService.editAnn(announcement)
+      .subscribe(res => {
+      //  this.router.navigate(['viewProfile']);
+      }, (err) => {
+        console.log(err);
+        alert(err.error);
       });
   }
 }

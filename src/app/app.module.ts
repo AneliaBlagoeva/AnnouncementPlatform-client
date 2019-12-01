@@ -32,6 +32,9 @@ import { AnnouncementsViewService } from './announcementsview/announcementsview.
 import { AnnouncementsViewComponent } from './announcementsview/announcementsview.component';
 import { JobAnnouncementsViewComponent } from './jobannouncementsview/jobannouncementsview.component';
 import { JobAnnouncementViewService } from './jobannouncementsview/jobannouncementsview.service';
+import { ScholarshipAnnouncementViewComponent } from './scholarshipannouncementsview/scholarshipannouncementsview.component';
+import { ScholarshipAnnouncementViewService } from './scholarshipannouncementsview/scholarshipannouncementsview.service'
+
 
 @NgModule({
   declarations: [
@@ -51,7 +54,8 @@ import { JobAnnouncementViewService } from './jobannouncementsview/jobannounceme
     ScholarshipAnnouncementComponent,
     VolunteerAnnouncementComponent,
     AnnouncementsViewComponent,
-    JobAnnouncementsViewComponent
+    JobAnnouncementsViewComponent,
+    ScholarshipAnnouncementViewComponent
   ],
   imports: [
     BrowserModule,
@@ -75,7 +79,8 @@ import { JobAnnouncementViewService } from './jobannouncementsview/jobannounceme
     ScholarshipAnnouncementService,
     VolunteerAnnouncementService,
     AnnouncementsViewService,
-    JobAnnouncementViewService
+    JobAnnouncementViewService,
+    ScholarshipAnnouncementViewService
   ],
   bootstrap: [AppComponent]
 })
