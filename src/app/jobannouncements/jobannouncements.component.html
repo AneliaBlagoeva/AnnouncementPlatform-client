@@ -5,7 +5,6 @@
           <tbody>
           <tr *ngFor="let ja of jobAnns">
             <td>{{ja.anncmntID}}</td>
-            <td>{{ja.anncmnt.anncmntId}}</td>
             <td>{{ja.anncmnt.anncmntName}}</td>
             <td>{{ja.anncmnt.category.categoryName}}</td>
             <td>{{ja.anncmnt.dateCreated}}</td>
@@ -13,12 +12,40 @@
             <td>{{ja.anncmnt.url}}</td>
             <td>{{ja.anncmnt.status.statusName}}</td>
             <td>{{ja.anncmnt.userEmail}}</td>
-            <td>{{ja.anncmntOrganization}}</td>
-            <td>{{ja.candidateResponsibility}}</td>
-            <td>{{ja.salary}}</td>
-            <td>{{ja.experiance}}</td>
-            <td>{{ja.benefits}}</td>
-            <td>{{ja.requirements}}</td>
+
+            <td>
+          <label>Announcement Organization</label>
+          <input type="text" [(ngModel)]="this.ja.anncmntOrganization" [disabled]="!this.isEditable">
+        </td>
+            
+
+        <td>
+          <label>Candidate Responsibility</label>
+          <input type="text" [(ngModel)]="this.ja.candidateResponsibility" [disabled]="!this.isEditable">
+        </td>
+
+
+        <td>
+          <label>Salary</label>
+          <input type="text" [(ngModel)]="this.ja.salary" [disabled]="!this.isEditable">
+        </td>
+
+        <td>
+          <label>Experiance</label>
+          <input type="text" [(ngModel)]="this.ja.experiance" [disabled]="!this.isEditable">
+        </td>
+
+        <td>
+          <label>Benefits</label>
+          <input type="text" [(ngModel)]="this.ja.benefits" [disabled]="!this.isEditable">
+        </td>
+
+        <td>
+          <label>Requirements</label>
+          <input type="text" [(ngModel)]="this.ja.requirements" [disabled]="!this.isEditable">
+        </td>
+        <td><button (click)="edit()" *ngIf="!this.isEditable">Edit</button></td>
+        <td><button (click)="save(ja)" *ngIf="this.isEditable">Save</button></td>
         <tr>
           </tbody>
         </table>

@@ -11,6 +11,7 @@ import { JobAnnouncementService } from './jobannouncements.service';
 export class JobAnnouncementsComponent implements OnInit {
 
    jobAnns: JobAnnouncement[];
+   isEditable: boolean;
 
   constructor(
     private router: Router,
@@ -20,6 +21,20 @@ export class JobAnnouncementsComponent implements OnInit {
     this.jobAnnService.getJobAnnouncements()
       .subscribe( data => {
         this.jobAnns = data;
+      });
+  }
+
+   edit() {
+    this.isEditable = true;
+  }
+
+  save(announcement: JobAnnouncement) {
+    this.jobAnnService.editAnn(announcement)
+      .subscribe(res => {
+      //  this.router.navigate(['viewProfile']);
+      }, (err) => {
+        console.log(err);
+        alert(err.error);
       });
   }
 
