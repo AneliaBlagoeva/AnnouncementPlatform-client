@@ -20,6 +20,7 @@ import { VolunteerAnnouncementComponent } from './volunteerannouncements/volunte
 import { AnnouncementsViewComponent } from './announcementsview/announcementsview.component';
 import { JobAnnouncementsViewComponent } from './jobannouncementsview/jobannouncementsview.component';
 import { ScholarshipAnnouncementViewComponent } from './scholarshipannouncementsview/scholarshipannouncementsview.component';
+import { VolunteerAnnouncementViewComponent } from './volunteerannouncementsview/volunteerannouncementsview.component';
 
 const routes: Routes = [
   { path: 'userJobAttributes', component: JobUserComponent},
@@ -38,7 +39,8 @@ const routes: Routes = [
   { path: 'scholarshipAnnouncements', component: ScholarshipAnnouncementComponent },
   { path: 'volunteerAnnouncements', component: VolunteerAnnouncementComponent },
   { path: 'jobAnnouncementsView', component: JobAnnouncementsViewComponent },
-  { path: 'scholarshipAnnouncementsView', component: ScholarshipAnnouncementViewComponent }
+  { path: 'scholarshipAnnouncementsView', component: ScholarshipAnnouncementViewComponent },
+  { path: 'volunteerAnnouncementsView', component: VolunteerAnnouncementViewComponent },
 ];
 
 @NgModule({

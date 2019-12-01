@@ -13,7 +13,12 @@
             <td>{{va.anncmnt.url}}</td>
             <td>{{va.anncmnt.status.statusName}}</td>
             <td>{{va.anncmnt.userEmail}}</td>
-            <td>{{va.anncmntOrganization}}</td>
+            <td>
+          <label>Announcement Organization</label>
+          <input type="text" [(ngModel)]="this.va.anncmntOrganization" [disabled]="!this.isEditable">
+        </td>
+        <td><button (click)="edit()" *ngIf="!this.isEditable">Edit</button></td>
+        <td><button (click)="save(va)" *ngIf="this.isEditable">Save</button></td>
         <tr>
           </tbody>
         </table>

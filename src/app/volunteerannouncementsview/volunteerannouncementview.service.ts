@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { VolunteerAnnouncement } from '../models/volunteerannouncement.model';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -10,7 +9,7 @@ const httpOptions = {
 @Injectable({
     providedIn: 'root'
 })
-export class VolunteerAnnouncementService {
+export class VolunteerAnnouncementViewService {
   router: any;
 
   constructor(private http: HttpClient) { }
@@ -19,9 +18,5 @@ export class VolunteerAnnouncementService {
 
   getVolAnnouncements(): Observable<any> {
     return this.http.get('//localhost:8080/api/voluntarinesses');
-  }
-
-  public editAnn(announcement: VolunteerAnnouncement) {
-    return this.http.put<VolunteerAnnouncement>(this.userUrl, announcement);
   }
 }

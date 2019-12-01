@@ -13,6 +13,7 @@ import { VolunteerAnnouncement } from '../models/volunteerannouncement.model';
 export class VolunteerAnnouncementComponent implements OnInit {
 
    volAnns: VolunteerAnnouncement[];
+   isEditable: boolean;
 
   constructor(
     private router: Router,
@@ -22,6 +23,21 @@ export class VolunteerAnnouncementComponent implements OnInit {
     this.volAnnService.getVolAnnouncements()
       .subscribe( data => {
         this.volAnns = data;
+      });
+  }
+
+  
+  edit() {
+    this.isEditable = true;
+  }
+
+  save(announcement: VolunteerAnnouncement) {
+    this.volAnnService.editAnn(announcement)
+      .subscribe(res => {
+      //  this.router.navigate(['viewProfile']);
+      }, (err) => {
+        console.log(err);
+        alert(err.error);
       });
   }
 
