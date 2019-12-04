@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Announcement } from '../models/announcement.model';
 import { Router } from '@angular/router';
-import { AnnouncementsViewService } from './announcementsview.service';
+import { AnnouncementService } from '../announcements/announcement.service';
 
 @Component({
   selector: 'app-announcementsview',
@@ -15,7 +15,7 @@ export class AnnouncementsViewComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private annService: AnnouncementsViewService) {}
+    private annService: AnnouncementService) {}
 
   ngOnInit() {
     this.annService.getAnnouncements()

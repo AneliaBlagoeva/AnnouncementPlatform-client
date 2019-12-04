@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ScholarshipAnnouncementViewService } from './scholarshipannouncementsview.service';
 import { ScholarshipAnnouncement } from '../models/scholarshipannouncement.model';
+import { ScholarshipAnnouncementService } from '../scholarshipannouncements/scholarshipannouncements.service';
 
 @Component({
   selector: 'app-announcements',
@@ -15,7 +15,7 @@ export class ScholarshipAnnouncementViewComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private scholarshipAnnService: ScholarshipAnnouncementViewService) {}
+    private scholarshipAnnService: ScholarshipAnnouncementService) {}
 
   ngOnInit() {
     this.scholarshipAnnService.getScholarshipAnnouncements()

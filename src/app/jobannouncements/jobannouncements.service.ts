@@ -24,4 +24,8 @@ export class JobAnnouncementService {
   public editAnn(announcement: JobAnnouncement) {
     return this.http.put<JobAnnouncement>(this.userUrl, announcement);
   }
+
+  getJobById(id : Number) : Observable<any>{
+    return this.http.get((this.userUrl + '/' + id));
+  }
 }

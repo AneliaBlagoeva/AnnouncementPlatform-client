@@ -25,8 +25,19 @@ export class AnnouncementService {
     return this.http.delete(this.userUrl + '/' + announcement.anncmntId);
   }
 
-
   public editAnn(announcement: Announcement) {
     return this.http.put<Announcement>(this.userUrl, announcement);
+  }
+
+  public createAnn(announcement: Announcement) {
+    return this.http.post<Announcement>(this.userUrl, announcement);
+  }
+
+  getAnnouncementsByEmail(email: String): Observable<any> {
+    return this.http.get(this.userUrl + '/email/' + email);
+  }
+
+  getAnnouncementsById(id: Number): Observable<any> {
+    return this.http.get(this.userUrl + '/' + id);
   }
 }

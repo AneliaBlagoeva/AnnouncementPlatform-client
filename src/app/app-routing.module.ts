@@ -21,6 +21,11 @@ import { AnnouncementsViewComponent } from './announcementsview/announcementsvie
 import { JobAnnouncementsViewComponent } from './jobannouncementsview/jobannouncementsview.component';
 import { ScholarshipAnnouncementViewComponent } from './scholarshipannouncementsview/scholarshipannouncementsview.component';
 import { VolunteerAnnouncementViewComponent } from './volunteerannouncementsview/volunteerannouncementsview.component';
+import { MyAnnouncementsComponent } from './myannouncements/myannouncements.component';
+import { MyJobAnnouncementsComponent } from './myjobannouncements/myjobannouncements.component';
+import { MyScholarshipAnnouncementsComponent } from './myscholarshipannouncements/myscholarshipannouncements.component';
+import { MyVoluntarinessAnnouncementsComponent } from './myvoluntarinessannouncements/myvoluntarinessannouncements.component';
+import { CreateAnnouncementComponent } from './createannouncement/createannouncement.component';
 
 const routes: Routes = [
   { path: 'userJobAttributes', component: JobUserComponent},
@@ -41,6 +46,11 @@ const routes: Routes = [
   { path: 'jobAnnouncementsView', component: JobAnnouncementsViewComponent },
   { path: 'scholarshipAnnouncementsView', component: ScholarshipAnnouncementViewComponent },
   { path: 'volunteerAnnouncementsView', component: VolunteerAnnouncementViewComponent },
+  { path: 'myAnnouncements', component: MyAnnouncementsComponent },
+  { path: 'myJobAnnouncements', component: MyJobAnnouncementsComponent },
+  { path: 'myScholarshipAnnouncements', component: MyScholarshipAnnouncementsComponent },
+  { path: 'myVoluntarinessAnnouncements', component: MyVoluntarinessAnnouncementsComponent },
+  { path: 'createAnnouncement', component: CreateAnnouncementComponent }
 ];
 
 @NgModule({

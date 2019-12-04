@@ -24,4 +24,8 @@ export class ScholarshipAnnouncementService {
   public editAnn(announcement: ScholarshipAnnouncement) {
     return this.http.put<ScholarshipAnnouncement>(this.userUrl, announcement);
   }
+
+  getScholarshipById(id : Number) : Observable<any>{
+    return this.http.get((this.userUrl + '/' + id));
+  }
 }

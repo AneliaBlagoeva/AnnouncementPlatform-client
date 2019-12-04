@@ -21,6 +21,10 @@ export class VolunteerAnnouncementService {
     return this.http.get('//localhost:8080/api/voluntarinesses');
   }
 
+  getVoluntarinessById(id : Number) : Observable<any>{
+    return this.http.get((this.userUrl + '/' + id));
+  }
+  
   public editAnn(announcement: VolunteerAnnouncement) {
     return this.http.put<VolunteerAnnouncement>(this.userUrl, announcement);
   }

@@ -1,22 +1,23 @@
 export class JobAnnouncement {
+  [x: string]: any;
   anncmntID: null;
   anncmnt: {
     anncmntId: null;
     anncmntName: null;
     status:
-    {
-      statusId: null;
-      statusName: null;
-    };
-    category:
-    {
-      categoryId: null;
-      categoryName: null;
-    };
+  {
+    statusId: Number;
+    statusName: String;
+  };
+  category:
+  {
+    categoryId: Number;
+    categoryName: String;
+  };
     description: null;
     url: null;
     dateCreated: null;
-    userEmail: null;
+    userEmail: String;
   }
   anncmntOrganization: null;
   candidateResponsibility: null;

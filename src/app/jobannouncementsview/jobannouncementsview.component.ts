@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { JobAnnouncement } from '../models/jobannouncement.model';
 import { Router } from '@angular/router';
-import { JobAnnouncementViewService } from './jobannouncementsview.service';
+import { JobAnnouncementService } from '../jobannouncements/jobannouncements.service';
 
 @Component({
   selector: 'app-jobannouncements',
@@ -14,7 +14,7 @@ export class JobAnnouncementsViewComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private jobAnnService: JobAnnouncementViewService) {}
+    private jobAnnService: JobAnnouncementService) {}
 
   ngOnInit() {
     this.jobAnnService.getJobAnnouncements()

@@ -3,16 +3,16 @@ export class Announcement {
       anncmntName: null;
       status:
     {
-      statusId: null;
-      statusName: null;
+      statusId: Number;
+      statusName: String;
     };
     category:
     {
-      categoryId: null;
-      categoryName: null;
+      categoryId: Number;
+      categoryName: String;
     };
       description: null;
       url: null;
       dateCreated: null;
-      userEmail: null;
+      userEmail: String;
   }

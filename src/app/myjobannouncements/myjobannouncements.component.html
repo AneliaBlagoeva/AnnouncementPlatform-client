@@ -1,0 +1,51 @@
+<div class="col-md-6">
+  <h2> Announcement Details</h2>
+
+  <table class="table table-striped">
+    <tbody>
+        <td>{{this.jobAnns.anncmntID}}</td>
+        <td>{{this.jobAnns.anncmnt.anncmntName}}</td>
+        <td>{{this.jobAnns.anncmnt.category.categoryName}}</td>
+        <td>{{this.jobAnns.anncmnt.dateCreated}}</td>
+        <td>{{this.jobAnns.anncmnt.description}}</td>
+        <td>{{this.jobAnns.anncmnt.url}}</td>
+        <td>{{this.jobAnns.anncmnt.status.statusName}}</td>
+        <td>{{this.jobAnns.anncmnt.userEmail}}</td>
+
+        <td>
+          <label>Announcement Organization</label>
+          <input type="text" [(ngModel)]="this.jobAnns.anncmntOrganization" [disabled]="!this.isEditable">
+        </td>
+
+
+        <td>
+          <label>Candidate Responsibility</label>
+          <input type="text" [(ngModel)]="this.jobAnns.candidateResponsibility" [disabled]="!this.isEditable">
+        </td>
+
+
+        <td>
+          <label>Salary</label>
+          <input type="text" [(ngModel)]="this.jobAnns.salary" [disabled]="!this.isEditable">
+        </td>
+
+        <td>
+          <label>Experiance</label>
+          <input type="text" [(ngModel)]="this.jobAnns.experiance" [disabled]="!this.isEditable">
+        </td>
+
+        <td>
+          <label>Benefits</label>
+          <input type="text" [(ngModel)]="this.jobAnns.benefits" [disabled]="!this.isEditable">
+        </td>
+
+        <td>
+          <label>Requirements</label>
+          <input type="text" [(ngModel)]="this.jobAnns.requirements" [disabled]="!this.isEditable">
+        </td>
+        <td><button (click)="edit()" *ngIf="!this.isEditable">Edit</button></td>
+        <td><button (click)="save(jobAnns)" *ngIf="this.isEditable">Save</button></td>
+      <tr>
+    </tbody>
+  </table>
+</div>

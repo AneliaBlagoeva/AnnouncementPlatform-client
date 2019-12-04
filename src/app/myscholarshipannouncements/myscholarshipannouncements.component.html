@@ -1,0 +1,56 @@
+<div class="col-md-6">
+  <h2> Announcement Details</h2>
+
+  <table class="table table-striped">
+    <tbody>
+        <td>{{this.schAnns.anncmntID}}</td>
+        <td>{{this.schAnns.anncmnt.anncmntName}}</td>
+        <td>{{this.schAnns.anncmnt.category.categoryName}}</td>
+        <td>{{this.schAnns.anncmnt.dateCreated}}</td>
+        <td>{{this.schAnns.anncmnt.description}}</td>
+        <td>{{this.schAnns.anncmnt.url}}</td>
+        <td>{{this.schAnns.anncmnt.status.statusName}}</td>
+        <td>{{this.schAnns.anncmnt.userEmail}}</td>
+
+        <td>
+          <label>Min grade requirement</label>
+          <input type="text" [(ngModel)]="this.schAnns.minGrade" [disabled]="!this.isEditable">
+        </td>
+
+        <td>
+          <label>Scholarship award</label>
+          <input type="text" [(ngModel)]="this.schAnns.scholarshipAward" [disabled]="!this.isEditable">
+        </td>
+
+        <td>
+          <label>Requirements</label>
+          <input type="text" [(ngModel)]="this.schAnns.requirements" [disabled]="!this.isEditable">
+        </td>
+
+        <td>
+          <label>Program allowed</label>
+          <input type="text" [(ngModel)]="this.schAnns.programAllowed" [disabled]="!this.isEditable">
+        </td>
+
+        <td>
+          <label>University allowed</label>
+          <input type="text" [(ngModel)]="this.schAnns.universityAllowed" [disabled]="!this.isEditable">
+        </td>
+
+        <td>
+          <label>Year allowed</label>
+          <input type="text" [(ngModel)]="this.schAnns.yearAllowed" [disabled]="!this.isEditable">
+        </td>
+
+        <td>
+          <label>Degree allowed</label>
+          <input type="text" [(ngModel)]="this.schAnns.degreeAllowed" [disabled]="!this.isEditable">
+
+        </td>
+           <td><button (click)="edit()" *ngIf="!this.isEditable">Edit</button></td>
+        <td><button (click)="save(schAnns)" *ngIf="this.isEditable">Save</button></td>
+
+      <tr>
+    </tbody>
+  </table>
+</div>

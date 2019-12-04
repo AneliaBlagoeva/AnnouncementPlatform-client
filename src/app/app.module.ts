@@ -28,14 +28,15 @@ import { ScholarshipAnnouncementComponent } from './scholarshipannouncements/sch
 import { ScholarshipAnnouncementService } from './scholarshipannouncements/scholarshipannouncements.service'
 import { VolunteerAnnouncementComponent } from './volunteerannouncements/volunteerannouncements.component';
 import { VolunteerAnnouncementService } from './volunteerannouncements/volunteerannouncement.service';
-import { AnnouncementsViewService } from './announcementsview/announcementsview.service';
 import { AnnouncementsViewComponent } from './announcementsview/announcementsview.component';
 import { JobAnnouncementsViewComponent } from './jobannouncementsview/jobannouncementsview.component';
-import { JobAnnouncementViewService } from './jobannouncementsview/jobannouncementsview.service';
 import { ScholarshipAnnouncementViewComponent } from './scholarshipannouncementsview/scholarshipannouncementsview.component';
-import { ScholarshipAnnouncementViewService } from './scholarshipannouncementsview/scholarshipannouncementsview.service'
 import { VolunteerAnnouncementViewComponent } from './volunteerannouncementsview/volunteerannouncementsview.component';
-import { VolunteerAnnouncementViewService } from './volunteerannouncementsview/volunteerannouncementview.service';
+import { MyAnnouncementsComponent } from './myannouncements/myannouncements.component';
+import { MyJobAnnouncementsComponent } from './myjobannouncements/myjobannouncements.component';
+import { MyScholarshipAnnouncementsComponent } from './myscholarshipannouncements/myscholarshipannouncements.component';
+import { MyVoluntarinessAnnouncementsComponent } from './myvoluntarinessannouncements/myvoluntarinessannouncements.component';
+import { CreateAnnouncementComponent } from './createannouncement/createannouncement.component';
 
 
 @NgModule({
@@ -58,7 +59,12 @@ import { VolunteerAnnouncementViewService } from './volunteerannouncementsview/v
     AnnouncementsViewComponent,
     JobAnnouncementsViewComponent,
     ScholarshipAnnouncementViewComponent,
-    VolunteerAnnouncementViewComponent
+    VolunteerAnnouncementViewComponent,
+    MyAnnouncementsComponent,
+    MyJobAnnouncementsComponent,
+    MyScholarshipAnnouncementsComponent,
+    MyVoluntarinessAnnouncementsComponent,
+    CreateAnnouncementComponent
     
   ],
   imports: [
@@ -81,11 +87,7 @@ import { VolunteerAnnouncementViewService } from './volunteerannouncementsview/v
     AuthService,
     JobAnnouncementService,
     ScholarshipAnnouncementService,
-    VolunteerAnnouncementService,
-    AnnouncementsViewService,
-    JobAnnouncementViewService,
-    ScholarshipAnnouncementViewService,
-    VolunteerAnnouncementViewService
+    VolunteerAnnouncementService
   ],
   bootstrap: [AppComponent]
 })

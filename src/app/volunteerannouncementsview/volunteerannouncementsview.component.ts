@@ -2,8 +2,8 @@
 
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { VolunteerAnnouncementViewService } from './volunteerannouncementview.service';
 import { VolunteerAnnouncement } from '../models/volunteerannouncement.model';
+import { VolunteerAnnouncementService } from '../volunteerannouncements/volunteerannouncement.service';
 
 @Component({
   selector: 'app-volunteerannouncementsview',
@@ -16,7 +16,7 @@ export class VolunteerAnnouncementViewComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private volAnnService: VolunteerAnnouncementViewService) {}
+    private volAnnService: VolunteerAnnouncementService) {}
 
   ngOnInit() {
     this.volAnnService.getVolAnnouncements()
