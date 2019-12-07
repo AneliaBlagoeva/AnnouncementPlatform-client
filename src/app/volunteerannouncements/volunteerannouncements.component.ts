@@ -34,7 +34,7 @@ export class VolunteerAnnouncementComponent implements OnInit {
   save(announcement: VolunteerAnnouncement) {
     this.volAnnService.editAnn(announcement)
       .subscribe(res => {
-      //  this.router.navigate(['viewProfile']);
+      alert("Volunteer announcement is saved!");
       }, (err) => {
         console.log(err);
         alert(err.error);

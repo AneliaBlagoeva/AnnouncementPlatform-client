@@ -37,6 +37,7 @@ import { MyJobAnnouncementsComponent } from './myjobannouncements/myjobannouncem
 import { MyScholarshipAnnouncementsComponent } from './myscholarshipannouncements/myscholarshipannouncements.component';
 import { MyVoluntarinessAnnouncementsComponent } from './myvoluntarinessannouncements/myvoluntarinessannouncements.component';
 import { CreateAnnouncementComponent } from './createannouncement/createannouncement.component';
+import { HeaderComponent } from './header/header.component';
 
 
 @NgModule({
@@ -64,7 +65,8 @@ import { CreateAnnouncementComponent } from './createannouncement/createannounce
     MyJobAnnouncementsComponent,
     MyScholarshipAnnouncementsComponent,
     MyVoluntarinessAnnouncementsComponent,
-    CreateAnnouncementComponent
+    CreateAnnouncementComponent,
+    HeaderComponent
     
   ],
   imports: [
@@ -91,4 +93,5 @@ import { CreateAnnouncementComponent } from './createannouncement/createannounce
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+}

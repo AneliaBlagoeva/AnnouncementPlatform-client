@@ -33,7 +33,7 @@ export class ScholarshipAnnouncementComponent implements OnInit {
   save(announcement: ScholarshipAnnouncement) {
     this.scholarshipAnnService.editAnn(announcement)
       .subscribe(res => {
-      //  this.router.navigate(['viewProfile']);
+        alert("Scholarship announcement is saved!");
       }, (err) => {
         console.log(err);
         alert(err.error);

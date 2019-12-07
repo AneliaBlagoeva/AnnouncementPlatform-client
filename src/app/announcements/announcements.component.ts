@@ -43,7 +43,7 @@ export class AnnouncementsComponent implements OnInit {
   save(announcement: Announcement) {
     this.annService.editAnn(announcement)
       .subscribe(res => {
-      //  this.router.navigate(['viewProfile']);
+      alert("Announcement is updated successfully!")
       }, (err) => {
         console.log(err);
         alert(err.error);

@@ -30,9 +30,4 @@ export class VolunteerUserComponent implements OnInit {
         this.volunteerattributes = this.volunteerattributes.filter(u => u !== volunteerattributes);
       });
   }
-
-  logout(){
-  localStorage.removeItem('token');
-  this.router.navigate(['login']);
-  }
 }

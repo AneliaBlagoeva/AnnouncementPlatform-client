@@ -1,5 +1,4 @@
 export class JobAnnouncement {
-  [x: string]: any;
   anncmntID: null;
   anncmnt: {
     anncmntId: null;

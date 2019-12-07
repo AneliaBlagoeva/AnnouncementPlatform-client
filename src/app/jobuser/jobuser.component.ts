@@ -23,9 +23,4 @@ export class JobUserComponent implements OnInit {
         this.userjobattributes = data;
       });
   }
-
-  logout(){
-  localStorage.removeItem('token');
-  this.router.navigate(['login']);
-  }
 }

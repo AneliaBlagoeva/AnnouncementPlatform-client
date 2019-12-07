@@ -59,7 +59,7 @@ export class ViewProfileComponent implements OnInit {
   save(user: User, jobuser: JobUser, studentuser: StudentUser, volunteeruser: VolunteerUser) {
     this.userService.editUser(user)
       .subscribe(res => {
-        //  this.router.navigate(['viewProfile']);
+      alert("Profile is saved!");
       }, (err) => {
         console.log(err);
         alert(err.error);
@@ -70,7 +70,7 @@ export class ViewProfileComponent implements OnInit {
       jobuser.email = user.email;
       this.jobUserService.createUser(jobuser)
         .subscribe(res => {
-          //this.router.navigate(['viewProfile']);
+        alert("Profile is saved!");
         }, (err) => {
           console.log(err);
           alert(err.error);
@@ -82,7 +82,7 @@ export class ViewProfileComponent implements OnInit {
       studentuser.email = user.email;
       this.studentUserService.createUser(studentuser)
         .subscribe(res => {
-          //this.router.navigate(['viewProfile']);
+        alert("Profile is saved!");
         }, (err) => {
           console.log(err);
           alert(err.error);
@@ -94,7 +94,7 @@ export class ViewProfileComponent implements OnInit {
       volunteeruser.email = user.email;
       this.volunteerUserService.createUser(volunteeruser)
         .subscribe(res => {
-          this.router.navigate(['viewProfile']);
+        alert("Profile is saved!");
         }, (err) => {
           console.log(err);
           alert(err.error);
@@ -106,10 +106,5 @@ export class ViewProfileComponent implements OnInit {
 
   changePass() {
     this.router.navigate(['changePass']);
-  }
-
-  logout() {
-    localStorage.removeItem('token');
-    this.router.navigate(['login']);
   }
 }

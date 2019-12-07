@@ -1,17 +1,13 @@
 <div class="container-fluid">
-<div class="col-md-offset-1">
-  <h1>
-    Welcome to !
-  </h1>
-</div>
+  <div class="col-md-offset-1">
+    <h1>
+      Welcome to !
+    </h1>
+  </div>  
 
-<a routerLink="register"> Register User</a>
-<a routerLink="login"> Sign in User</a>
-<a routerLink="announcementsView"> View Announcements</a>
-<a routerLink="jobAnnouncementsView"> View Job Announcements</a>
-<a routerLink="scholarshipAnnouncementsView"> List scholarship announcements</a><br>
-<a routerLink="volunteerAnnouncementsView"> List volunteer announcements</a><br>
+  <br/>
+  <app-header></app-header>
+  <router-outlet></router-outlet>
 
-<br/>
-<router-outlet></router-outlet>
+  
 </div>

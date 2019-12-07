@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { Observable, of, BehaviorSubject } from 'rxjs';
 import { tap, catchError, map, mapTo } from 'rxjs/operators';
 import { User } from './models/user.model';
 
@@ -12,7 +12,7 @@ const apiUrl = 'http://localhost:8080/api/auth/';
 })
 export class AuthService {
 
-  isLoggedIn = false;
+  private isLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   redirectUrl: string;
 
   constructor(private http: HttpClient) { }
@@ -27,14 +27,15 @@ export class AuthService {
           }
           return user;
         }),
-        tap(_ => this.isLoggedIn = true)
+        tap(_ => this.isLoggedIn.next(true))
       );
   }
 
+  
   logout(): Observable<any> {
     return this.http.get<any>(apiUrl + 'signout')
       .pipe(
-        tap(_ => this.isLoggedIn = false),
+        tap(_ => this.isLoggedIn.next(false)),
         catchError(this.handleError('logout', []))
       );
   }
@@ -75,5 +76,10 @@ export class AuthService {
 
   private log(message: string) {
     console.log(message);
+  }
+
+  
+  isAuthenticated() {
+    return this.isLoggedIn.asObservable();
   }
 }

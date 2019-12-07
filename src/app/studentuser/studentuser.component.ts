@@ -30,9 +30,4 @@ export class StudentUserComponent implements OnInit {
         this.studentattributes = this.studentattributes.filter(u => u !== studentattributes);
       });
   }
-
-  logout(){
-  localStorage.removeItem('token');
-  this.router.navigate(['login']);
-  }
 }

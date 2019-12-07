@@ -45,7 +45,7 @@ export class MyVoluntarinessAnnouncementsComponent implements OnInit {
     announcement.anncmntID = this.anns.anncmntId;
     this.voluntarinessAnnService.editAnn(announcement)
       .subscribe(res => {
-      //  this.router.navigate(['viewProfile']);
+      alert("Announcement is edited!")
       }, (err) => {
         console.log(err);
         alert(err.error);

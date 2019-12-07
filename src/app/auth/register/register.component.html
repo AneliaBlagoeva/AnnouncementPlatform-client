@@ -39,7 +39,7 @@
           </div>
           <div class="form-group">
             <label for="password">password</label>
-            <input  formControlName="password" placeholder="Password">
+            <input type="password" formControlName="password" placeholder="Password">
             <span *ngIf="!registerForm.get('password').valid && registerForm.get('password').touched">Please enter your password</span>
           </div>
          <div class="button-row">

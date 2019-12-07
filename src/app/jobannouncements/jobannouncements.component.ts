@@ -31,7 +31,7 @@ export class JobAnnouncementsComponent implements OnInit {
   save(announcement: JobAnnouncement) {
     this.jobAnnService.editAnn(announcement)
       .subscribe(res => {
-      //  this.router.navigate(['viewProfile']);
+      alert("Job announcement is saved!");
       }, (err) => {
         console.log(err);
         alert(err.error);

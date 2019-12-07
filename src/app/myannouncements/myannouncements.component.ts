@@ -43,7 +43,7 @@ anns: Announcement[];
   save(announcement: Announcement) {
     this.annService.editAnn(announcement)
       .subscribe(res => {
-      //  this.router.navigate(['viewProfile']);
+      alert("Announcement is edited!")
       }, (err) => {
         console.log(err);
         alert(err.error);

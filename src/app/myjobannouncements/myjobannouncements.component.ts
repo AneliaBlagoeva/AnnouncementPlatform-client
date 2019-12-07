@@ -46,7 +46,7 @@ export class MyJobAnnouncementsComponent implements OnInit {
     announcement.anncmntID = this.anns.anncmntId;
     this.jobAnnService.editAnn(announcement)
       .subscribe(res => {
-        //  this.router.navigate(['viewProfile']);
+      alert("Announcement is edited!")
       }, (err) => {
         console.log(err);
         alert(err.error);

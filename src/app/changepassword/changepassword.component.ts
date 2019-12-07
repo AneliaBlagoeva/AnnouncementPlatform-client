@@ -31,6 +31,7 @@ export class ChangepasswordComponent implements OnInit {
   onFormSubmit() {
     this.authService.changePass(this.f.email.value, this.f.password.value)
       .subscribe(res => {
+        alert("Password is changed!")
         this.router.navigate(['viewProfile']);
       }, (err) => {
         console.log(err);

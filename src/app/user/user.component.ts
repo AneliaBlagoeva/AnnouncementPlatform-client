@@ -37,9 +37,4 @@ export class UserComponent implements OnInit {
         this.userattributes = this.userattributes.filter(u => u !== user);
       });
   }
-
-  logout(){
-  localStorage.removeItem('token');
-  this.router.navigate(['login']);
-  }
 }
