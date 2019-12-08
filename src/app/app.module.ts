@@ -38,6 +38,7 @@ import { MyScholarshipAnnouncementsComponent } from './myscholarshipannouncement
 import { MyVoluntarinessAnnouncementsComponent } from './myvoluntarinessannouncements/myvoluntarinessannouncements.component';
 import { CreateAnnouncementComponent } from './createannouncement/createannouncement.component';
 import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -66,7 +67,8 @@ import { HeaderComponent } from './header/header.component';
     MyScholarshipAnnouncementsComponent,
     MyVoluntarinessAnnouncementsComponent,
     CreateAnnouncementComponent,
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent
     
   ],
   imports: [

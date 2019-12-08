@@ -1,0 +1,5 @@
+<div *ngIf="(isLoggedIn$ | async) as isLoggedIn">
+    <div class="button-row">
+        <button type="button" (click)="logout()" *ngIf="isLoggedIn">Logout</button>
+    </div>
+</div>
