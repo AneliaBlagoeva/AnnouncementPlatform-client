@@ -27,7 +27,7 @@
         </td>
         <td>
             <label>Age</label>
-          <input type="text" [(ngModel)]="this.userattributes.age" [disabled]="!this.isEditable">
+          <input type="number" [(ngModel)]="this.userattributes.age" [disabled]="!this.isEditable">
         </td>
       </tr>
       <tr>
@@ -52,14 +52,14 @@
         </td>
         <td>
             <label>Experiance</label>
-          <input type="text" [(ngModel)]="this.jobuserattributes.experience"
+          <input type="number" [(ngModel)]="this.jobuserattributes.experience"
             [disabled]="!(this.isEditable && this.isWorker)">
         </td>
       </tr>
       <tr>
         <td>
             <label>Grade</label>
-          <input type="text" [(ngModel)]="this.studentuserattributes.grade"
+          <input type="number" [(ngModel)]="this.studentuserattributes.grade"
             [disabled]="!(this.isEditable && this.isStudent)">
         </td>
         <td>
@@ -79,7 +79,7 @@
         </td>
         <td>
             <label>Year</label>
-            <input type="text" [(ngModel)]="this.studentuserattributes.year"
+            <input type="number" [(ngModel)]="this.studentuserattributes.year"
               [disabled]="!(this.isEditable && this.isStudent)">
         </td>
       </tr>

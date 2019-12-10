@@ -1,12 +1,9 @@
-<div *ngIf="!(isLoggedIn$ | async) as isLoggedIn">
+<div *ngIf="!isLoggedIn">
 
-    <a routerLink="register" > Register User</a>
-    <a routerLink="login" > Sign in User</a>
-    <a routerLink="announcementsView"> View Announcements</a>
+    <a routerLink="/register" > Register User</a>
+    <a routerLink="/login" > Sign in User</a>
+    <a routerLink="/announcementsView"> View Announcements</a>
     <a routerLink="/jobAnnouncementsView"> View Job Announcements</a>
     <a routerLink="/scholarshipAnnouncementsView"> List scholarship announcements</a><br>
     <a routerLink="/volunteerAnnouncementsView"> List volunteer announcements</a><br>
-    <div class="button-row">
-        <button type="button" (click)="logout()" *ngIf="!isLoggedIn">Logout</button>
-    </div>
 </div>

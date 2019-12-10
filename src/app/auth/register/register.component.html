@@ -15,22 +15,22 @@
          <div class="form-group">
             <label for="phone">Phone</label>
              <input formControlName="phone" placeholder="Phone">
-            <span *ngIf="!registerForm.get('phone').valid && registerForm.get('phone').touched">Please enter your phone</span>
-         </div>
+             
+            </div>
          <div class="form-group">
             <label for="country">Country</label>
              <input formControlName="country" placeholder="Country">
-            <span *ngIf="!registerForm.get('country').valid && registerForm.get('country').touched">Please enter your country</span>
+            
          </div>
          <div class="form-group">
             <label for="city">City</label>
              <input formControlName="city" placeholder="City">
-            <span *ngIf="!registerForm.get('city').valid && registerForm.get('city').touched">Please enter your City</span>
+            
          </div>
          <div class="form-group">
             <label for="age">Age</label>
-             <input formControlName="age" placeholder="Age">
-            <span *ngIf="!registerForm.get('age').valid && registerForm.get('age').touched">Please enter your Age</span>
+             <input type="number" formControlName="age" placeholder="Age">
+           
          </div>
          <div class="form-group">
             <label for="email">email</label>
@@ -39,11 +39,11 @@
           </div>
           <div class="form-group">
             <label for="password">password</label>
-            <input type="password" formControlName="password" placeholder="Password">
+            <input type="password" formControlName="password" placeholder="Password"  required>
             <span *ngIf="!registerForm.get('password').valid && registerForm.get('password').touched">Please enter your password</span>
           </div>
          <div class="button-row">
-          <button type="submit" >Register</button>
+          <button type="submit" [disabled]="!registerForm.valid">Register</button>
         </div>
       </form>
       </div>

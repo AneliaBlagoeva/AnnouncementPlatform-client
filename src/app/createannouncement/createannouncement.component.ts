@@ -22,8 +22,8 @@ export class CreateAnnouncementComponent implements OnInit {
   ngOnInit() {
     this.createForm = this.formBuilder.group({
       anncmntName: ['', Validators.required],
-      dateCreated: ['', Validators.required],
-      description: ['', Validators.required],
+      dateCreated: [''],
+      description: [''],
       url: ['', Validators.required],
       categoryId: [1, Validators.required]
     });

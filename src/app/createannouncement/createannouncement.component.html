@@ -1,4 +1,4 @@
-<div class="example-loading-shade" *ngIf="isLoadingResults"> </div>
+<div class="example-loading-shade"> </div>
 
 <div class="container">
       <form [formGroup]="createForm" (ngSubmit)="onFormSubmit(createForm)">
@@ -10,12 +10,12 @@
          <div class="form-group">
             <label for="dateCreated">Date</label>
              <input formControlName="dateCreated" placeholder="Date">
-            <span *ngIf="!createForm.get('dateCreated').valid && createForm.get('dateCreated').touched">Please enter date</span>
+            
          </div>
          <div class="form-group">
             <label for="description">Description</label>
              <input formControlName="description" placeholder="Description">
-            <span *ngIf="!createForm.get('description').valid && createForm.get('description').touched">Please enter description</span>
+            
          </div>
          <div class="form-group">
             <label for="url">Url</label>
@@ -30,7 +30,7 @@
           </select>
         </div>
          <div class="button-row">
-          <button type="submit" >Create</button>
+          <button type="submit" [disabled]="!createForm.valid">Create</button>
         </div>
       </form>
       </div>

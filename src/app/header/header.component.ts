@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 
 
@@ -12,12 +12,16 @@ import { Observable } from 'rxjs';
 })
 
 export class HeaderComponent implements OnInit {
-    isLoggedIn$: Observable<boolean>;
+    isLoggedIn: boolean;
 
-    ngOnInit(): void {
-    this.isLoggedIn$ = this.auth.isAuthenticated();
-    }
+    ngOnInit(): void {}
 
     constructor(private router: Router,
-                private auth: AuthService) {}
+                private auth: AuthService) {
+                auth.getLoggedInName.subscribe(flag => this.changeName(flag));
+    }
+
+    private changeName(flag: boolean): void {
+        this.isLoggedIn = flag;
+    }
 }

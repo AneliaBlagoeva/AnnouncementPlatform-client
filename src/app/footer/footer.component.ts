@@ -10,17 +10,20 @@ import { AuthService } from '../auth.service';
 })
 export class FooterComponent implements OnInit {
 
-   isLoggedIn$: Observable<boolean>;
-    ngOnInit(): void {
-    this.isLoggedIn$ = this.auth.isAuthenticated();
-    }
+  isLoggedIn: boolean;
+  ngOnInit(): void { }
 
-    constructor(private router: Router,
-                private auth: AuthService) {}
+  constructor(private router: Router,
+    private auth: AuthService) {
+    auth.getLoggedInName.subscribe(flag => this.changeName(flag));
+  }
+  private changeName(flag: boolean): void {
+    this.isLoggedIn = flag;
+  }
 
-        logout() {
-            this.auth.logout();
-            this.isLoggedIn$ = this.auth.isAuthenticated();
-            this.router.navigate(['login']);
-        }
+  logout() {
+    this.auth.logout();
+    this.isLoggedIn=false;
+    this.router.navigate(['header']);
+  }
 }

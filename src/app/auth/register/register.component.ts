@@ -26,10 +26,10 @@ export class RegisterComponent implements OnInit {
       email : ['', Validators.required],
       password : ['', Validators.required],
       lastname : ['', Validators.required],
-      phone : ['', Validators.required],
-      age : ['', Validators.required],
-      country : ['', Validators.required],
-      city : ['', Validators.required]
+      phone : [''],
+      age : [''],
+      country : [''],
+      city : ['']
     });
   }
 

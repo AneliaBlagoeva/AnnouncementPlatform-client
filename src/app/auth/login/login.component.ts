@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
         this.authService.logout();
 
         // get return url from route parameters or default to '/'
-        this.returnUrl = '/userJobAttributes';
+        this.returnUrl = '/';
     }
 
     // convenience getter for easy access to form fields

@@ -26,6 +26,7 @@ import { MyJobAnnouncementsComponent } from './myjobannouncements/myjobannouncem
 import { MyScholarshipAnnouncementsComponent } from './myscholarshipannouncements/myscholarshipannouncements.component';
 import { MyVoluntarinessAnnouncementsComponent } from './myvoluntarinessannouncements/myvoluntarinessannouncements.component';
 import { CreateAnnouncementComponent } from './createannouncement/createannouncement.component';
+import { HeaderComponent } from './header/header.component';
 
 const routes: Routes = [
   { path: 'userJobAttributes', component: JobUserComponent},
@@ -50,7 +51,8 @@ const routes: Routes = [
   { path: 'myJobAnnouncements', component: MyJobAnnouncementsComponent },
   { path: 'myScholarshipAnnouncements', component: MyScholarshipAnnouncementsComponent },
   { path: 'myVoluntarinessAnnouncements', component: MyVoluntarinessAnnouncementsComponent },
-  { path: 'createAnnouncement', component: CreateAnnouncementComponent }
+  { path: 'createAnnouncement', component: CreateAnnouncementComponent },
+  { path: 'header', component: HeaderComponent }
 ];
 
 @NgModule({
