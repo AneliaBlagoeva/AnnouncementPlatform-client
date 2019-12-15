@@ -41,6 +41,13 @@ export class MyScholarshipAnnouncementsComponent implements OnInit {
   }
 
   save(announcement: ScholarshipAnnouncement) {
+    let regexDecimal=new RegExp('^\d{0,2}(\.\d{0,2}){0,1}$');
+    if(announcement.minGrade==0.0 ||announcement.scholarshipAward==0.0
+      || announcement.requirements=="" || !regexDecimal.test(announcement.minGrade)
+      || !regexDecimal.test(announcement.scholarshipAward))
+      {
+        alert("Your input is invalid!");
+      }else{
     announcement.anncmnt = this.anns;
     announcement.anncmntID = this.anns.anncmntId;
     this.scholarshipAnnService.editAnn(announcement)
@@ -50,6 +57,7 @@ export class MyScholarshipAnnouncementsComponent implements OnInit {
         console.log(err);
         alert(err.error);
       });
+    }
   }
 
 }

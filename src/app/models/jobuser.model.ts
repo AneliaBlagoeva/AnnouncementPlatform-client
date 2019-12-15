@@ -4,7 +4,7 @@ export class JobUser {
   {
     email: string;
     phone: string;
-    age: Int16Array;
+    age: Number;
     city: string;
     country: string;
     fName: string;
@@ -16,5 +16,5 @@ export class JobUser {
     password: string;
   };
   skills: string;
-  experience: Int16Array;
+  experience: Number;
 }

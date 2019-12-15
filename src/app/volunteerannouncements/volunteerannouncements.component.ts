@@ -32,6 +32,9 @@ export class VolunteerAnnouncementComponent implements OnInit {
   }
 
   save(announcement: VolunteerAnnouncement) {
+    if(announcement.anncmntOrganization==""){
+      alert("Your input is invalid!")
+    }else{
     this.volAnnService.editAnn(announcement)
       .subscribe(res => {
       alert("Volunteer announcement is saved!");
@@ -40,5 +43,5 @@ export class VolunteerAnnouncementComponent implements OnInit {
         alert(err.error);
       });
   }
-
+  }
 }

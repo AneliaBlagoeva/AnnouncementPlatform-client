@@ -13,6 +13,6 @@ export class Announcement {
     };
       description: null;
       url: null;
-      dateCreated: null;
+      dateCreated: String;
       userEmail: String;
   }

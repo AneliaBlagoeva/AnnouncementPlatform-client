@@ -15,7 +15,7 @@ export class VolunteerAnnouncement {
     };
     description: null;
     url: null;
-    dateCreated: null;
+    dateCreated: String;
     userEmail: String;
   }
   anncmntOrganization: null;

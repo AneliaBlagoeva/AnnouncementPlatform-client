@@ -42,6 +42,10 @@ export class MyJobAnnouncementsComponent implements OnInit {
   }
 
   save(announcement: JobAnnouncement) {
+    if(announcement.anncmntOrganization=="" || announcement.requirements=="")
+    {
+      alert("Your input is invalid!");
+    }else{
     announcement.anncmnt = this.anns;
     announcement.anncmntID = this.anns.anncmntId;
     this.jobAnnService.editAnn(announcement)
@@ -52,5 +56,5 @@ export class MyJobAnnouncementsComponent implements OnInit {
         alert(err.error);
       });
   }
-
+  }
 }

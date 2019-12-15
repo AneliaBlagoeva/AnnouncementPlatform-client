@@ -41,6 +41,10 @@ export class MyVoluntarinessAnnouncementsComponent implements OnInit {
   }
 
   save(announcement: VolunteerAnnouncement) {
+    if(announcement.anncmntOrganization=="")
+    {
+      alert("Your input is invalid");
+    }else{
     announcement.anncmnt = this.anns;
     announcement.anncmntID = this.anns.anncmntId;
     this.voluntarinessAnnService.editAnn(announcement)
@@ -50,6 +54,7 @@ export class MyVoluntarinessAnnouncementsComponent implements OnInit {
         console.log(err);
         alert(err.error);
       });
+    }
   }
 
 }

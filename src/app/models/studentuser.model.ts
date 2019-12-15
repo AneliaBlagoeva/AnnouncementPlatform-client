@@ -4,7 +4,7 @@ export class StudentUser {
     {
       email: string;
       phone: string;
-      age: Int16Array;
+      age: Number;
       city: string;
       country: string;
       fName: string;
@@ -15,9 +15,9 @@ export class StudentUser {
       }
     }
     password: string;
-    grade: Float32Array;
+    grade: null;
     degree: string;
     university: string;
     program: string;
-    year: Int16Array;
+    year: Number;
   }

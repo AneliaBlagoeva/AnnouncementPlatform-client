@@ -22,9 +22,8 @@ export class CreateAnnouncementComponent implements OnInit {
   ngOnInit() {
     this.createForm = this.formBuilder.group({
       anncmntName: ['', Validators.required],
-      dateCreated: [''],
       description: [''],
-      url: ['', Validators.required],
+      url: ['', Validators.required, Validators.pattern(/^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/)],
       categoryId: [1, Validators.required]
     });
 
@@ -42,7 +41,15 @@ export class CreateAnnouncementComponent implements OnInit {
 
 
     this.anns.anncmntName = this.f.anncmntName.value;
-    this.anns.dateCreated = this.f.dateCreated.value;
+
+    //date
+    let today = new Date();
+    let dd = String(today.getDate()).padStart(2, '0');
+    let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    let yyyy = today.getFullYear();
+
+    let todayStr = yyyy + '-' + mm + '-' + dd;
+    this.anns.dateCreated = todayStr;
     this.anns.description = this.f.description.value;
     this.anns.url = this.f.url.value;
     this.anns.category.categoryId = this.f.categoryId.value;

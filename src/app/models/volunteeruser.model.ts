@@ -4,7 +4,7 @@ export class VolunteerUser {
     {
       email: string;
       phone: string;
-      age: Int16Array;
+      age: Number;
       city: string;
       country: string;
       fName: string;

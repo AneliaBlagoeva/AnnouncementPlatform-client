@@ -15,7 +15,7 @@ export class ScholarshipAnnouncement {
     };
     description: null;
     url: null;
-    dateCreated: null;
+    dateCreated: String;
     userEmail: String;
   }
   minGrade: null;

@@ -15,12 +15,12 @@ export class JobAnnouncement {
   };
     description: null;
     url: null;
-    dateCreated: null;
+    dateCreated: String;
     userEmail: String;
   }
   anncmntOrganization: null;
   candidateResponsibility: null;
-  salary: null;
+  salary: Number;
   experiance: null;
   benefits: null;
   requirements: null;

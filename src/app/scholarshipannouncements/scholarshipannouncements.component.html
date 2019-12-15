@@ -17,12 +17,12 @@
 
         <td>
           <label>Min grade requirement</label>
-          <input type="number" [(ngModel)]="this.sa.minGrade" [disabled]="!this.isEditable">
+          <input type="text" [(ngModel)]="this.sa.minGrade" [disabled]="!this.isEditable">
         </td>
 
         <td>
           <label>Scholarship award</label>
-          <input type="number" [(ngModel)]="this.sa.scholarshipAward" [disabled]="!this.isEditable">
+          <input type="text" [(ngModel)]="this.sa.scholarshipAward" [disabled]="!this.isEditable">
         </td>
 
         <td>
@@ -42,7 +42,7 @@
 
         <td>
           <label>Year allowed</label>
-          <input type="number" [(ngModel)]="this.sa.yearAllowed" [disabled]="!this.isEditable" ng-pattern="/^[0-9]{1,7}$/" >
+          <input type="number" [(ngModel)]="this.sa.yearAllowed" [disabled]="!this.isEditable" > 
         </td>
 
         <td>

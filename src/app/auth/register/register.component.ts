@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth.service';
-import { ReactiveFormsModule,Validators, FormBuilder, FormGroupDirective, FormControl, NgForm, FormGroup } from '@angular/forms';
+import { Validators, FormBuilder, FormGroupDirective, FormControl, NgForm, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -23,11 +23,11 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
       firstname : ['', Validators.required],
-      email : ['', Validators.required],
+      email : ['', Validators.required, Validators.pattern(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)],
       password : ['', Validators.required],
       lastname : ['', Validators.required],
-      phone : [''],
-      age : [''],
+      phone : ['',Validators.pattern(/^[0]\d{3}\d{4}\d{2}$/)],
+      age : ['',Validators.pattern(/^[1-9][0-9]$/)],
       country : [''],
       city : ['']
     });
@@ -37,6 +37,7 @@ export class RegisterComponent implements OnInit {
     get f() { return this.registerForm.controls; }
 
   onFormSubmit() {
+    
     this.authService.register(this.f.firstname.value, this.f.email.value, this.f.password.value,
                               this.f.lastname.value, this.f.phone.value, this.f.city.value,
                               this.f.country.value, this.f.age.value)
