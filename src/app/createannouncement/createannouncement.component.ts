@@ -23,7 +23,7 @@ export class CreateAnnouncementComponent implements OnInit {
     this.createForm = this.formBuilder.group({
       anncmntName: ['', Validators.required],
       description: [''],
-      url: ['', Validators.required, Validators.pattern(/^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/)],
+      url: ['', Validators.pattern(/^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/)],
       categoryId: [1, Validators.required]
     });
 
@@ -38,8 +38,6 @@ export class CreateAnnouncementComponent implements OnInit {
   onFormSubmit() {
     this.anns.status = { statusId: 1, statusName: '' };
     this.anns.category = { categoryId: 1, categoryName: '' };
-
-
     this.anns.anncmntName = this.f.anncmntName.value;
 
     //date

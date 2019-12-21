@@ -41,6 +41,21 @@ export class AnnouncementsComponent implements OnInit {
    }
 
   save(announcement: Announcement) {
+    //date
+    let today = new Date();
+    let dd = String(today.getDate()).padStart(2, '0');
+    let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    let yyyy = today.getFullYear();
+
+    let todayStr = yyyy + '-' + mm + '-' + dd;
+    announcement.dateCreated = todayStr;
+
+    let regexpUrl = new RegExp('^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$');
+    if(!regexpUrl.test(announcement.url) || announcement.anncmntName==""
+    || announcement.url=="")
+    {
+      alert("Ypur input is not valid!")
+    }else{
     this.annService.editAnn(announcement)
       .subscribe(res => {
       alert("Announcement is updated successfully!")
@@ -48,5 +63,6 @@ export class AnnouncementsComponent implements OnInit {
         console.log(err);
         alert(err.error);
       });
+    }
   }
 }

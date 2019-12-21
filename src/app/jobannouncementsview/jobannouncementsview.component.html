@@ -1,25 +1,37 @@
-<div class="col-md-6">
-        <h2> Announcement Details</h2>
-        
-        <table class="table table-striped">
-          <tbody>
-          <tr *ngFor="let ja of jobAnns">
-            <td>{{ja.anncmntID}}</td>
-            <td>{{ja.anncmnt.anncmntId}}</td>
-            <td>{{ja.anncmnt.anncmntName}}</td>
-            <td>{{ja.anncmnt.category.categoryName}}</td>
-            <td>{{ja.anncmnt.dateCreated}}</td>
-            <td>{{ja.anncmnt.description}}</td>
-            <td>{{ja.anncmnt.url}}</td>
-            <td>{{ja.anncmnt.status.statusName}}</td>
-            <td>{{ja.anncmnt.userEmail}}</td>
-            <td>{{ja.anncmntOrganization}}</td>
-            <td>{{ja.candidateResponsibility}}</td>
-            <td>{{ja.salary}}</td>
-            <td>{{ja.experiance}}</td>
-            <td>{{ja.benefits}}</td>
-            <td>{{ja.requirements}}</td>
+<div class="form-style-10">
+  <h1> Announcement Details</h1>
+
+  <table class="table table-striped">
+    <tbody>
         <tr>
-          </tbody>
-        </table>
-        </div>
+            <td><label>NAME</label></td>
+            <td><label>DESCRIPTION</label></td>
+            <td><label>URL</label></td>
+            <td><label>CREATED BY</label></td>
+            <td><label>CREATED ON</label></td>
+            <td><label>STATUS</label></td>
+            <td><label>ORGANIZATION</label></td>
+            <td><label>RESPONSIBILITES</label></td>
+            <td><label>SALARY</label></td>
+            <td><label>EXPERIENCE</label></td>
+            <td><label>BENEFITS</label></td>
+            <td><label>REQUIREMENTS</label></td>
+            <td></td>
+        </tr>
+      <tr *ngFor="let ja of jobAnns">
+        <td>{{ja.anncmnt.anncmntName}}</td>
+        <td>{{ja.anncmnt.description}}</td>
+        <td>{{ja.anncmnt.url}}</td>
+        <td>{{ja.anncmnt.userEmail}}</td>
+        <td>{{ja.anncmnt.dateCreated | date}}</td>
+        <td>{{ja.anncmnt.status.statusName}}</td>
+        <td>{{ja.anncmntOrganization}}</td>
+        <td>{{ja.candidateResponsibility}}</td>
+        <td>{{ja.salary}}</td>
+        <td>{{ja.experiance}}</td>
+        <td>{{ja.benefits}}</td>
+        <td>{{ja.requirements}}</td>
+      <tr>
+    </tbody>
+  </table>
+</div>

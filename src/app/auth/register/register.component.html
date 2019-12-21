@@ -1,49 +1,45 @@
-    <div class="example-loading-shade" *ngIf="isLoadingResults"> </div>
+<div class="form-style-10">
+<h1>Register</h1>
+<form [formGroup]="registerForm" (ngSubmit)="onFormSubmit(registerForm)">
+   <div class="form-group">
+      <input type="text" formControlName="firstname"  placeholder="First Name">
+      <span *ngIf="!registerForm.get('firstname').valid && registerForm.get('firstname').touched">Please enter your
+         First Name</span>
+   </div>
+   <div class="form-group">
+      <input type="text" formControlName="lastname" placeholder="Last Name">
+      <span *ngIf="!registerForm.get('lastname').valid && registerForm.get('lastname').touched">Please enter your Last
+         Name</span>
+   </div>
+   <div class="form-group">
+      <input type="text" formControlName="phone" placeholder="Phone">
+      <span *ngIf="!registerForm.get('phone').valid && registerForm.get('phone').touched">Please enter your mobile phone
+         in format 0xxxxxxxxx</span>
+   </div>
+   <div class="form-group">
+      <input type="text" formControlName="country" placeholder="Country">
 
-<div class="container">
-      <form [formGroup]="registerForm" (ngSubmit)="onFormSubmit(registerForm)">
-          <div class="form-group">
-            <label for="firstname">First name</label>
-             <input formControlName="firstname" placeholder="First Name">
-            <span *ngIf="!registerForm.get('firstname').valid && registerForm.get('firstname').touched">Please enter your First Name</span>
-         </div>
-         <div class="form-group">
-            <label for="lastname">Last name</label>
-             <input formControlName="lastname" placeholder="Last Name">
-            <span *ngIf="!registerForm.get('lastname').valid && registerForm.get('lastname').touched">Please enter your Last Name</span>
-         </div>
-         <div class="form-group">
-            <label for="phone">Phone</label>
-             <input formControlName="phone" placeholder="Phone">
-             <span *ngIf="!registerForm.get('phone').valid && registerForm.get('phone').touched">Please enter your mobile phone in format 0xxxxxxxxx</span> 
-            </div>
-         <div class="form-group">
-            <label for="country">Country</label>
-             <input formControlName="country" placeholder="Country">
-            
-         </div>
-         <div class="form-group">
-            <label for="city">City</label>
-             <input formControlName="city" placeholder="City">
-            
-         </div>
-         <div class="form-group">
-            <label for="age">Age</label>
-             <input type="text" formControlName="age" placeholder="Age">
-             <span *ngIf="!registerForm.get('age').valid && registerForm.get('age').touched">Please enter your age. Number between 10 and 99</span>
-         </div>
-         <div class="form-group">
-            <label for="email">email</label>
-            <input type="email" formControlName="email" placeholder="Email">
-            <span *ngIf="!registerForm.get('email').valid && registerForm.get('email').touched">Please enter your email</span>
-          </div>
-          <div class="form-group">
-            <label for="password">password</label>
-            <input type="password" formControlName="password" placeholder="Password"  required>
-            <span *ngIf="!registerForm.get('password').valid && registerForm.get('password').touched">Please enter your password</span>
-          </div>
-         <div class="button-row">
-          <button type="submit" [disabled]="!registerForm.valid">Register</button>
-        </div>
-      </form>
-      </div>
+   </div>
+   <div class="form-group">
+      <input type="text" formControlName="city" placeholder="City">
+
+   </div>
+   <div class="form-group">
+      <input type="text" formControlName="age" placeholder="Age">
+      <span *ngIf="!registerForm.get('age').valid && registerForm.get('age').touched">Please enter your age. Number
+         between 10 and 99</span>
+   </div>
+   <div class="form-group">
+      <input type="text" type="email" formControlName="email" placeholder="Email">
+      <span *ngIf="!registerForm.get('email').valid && registerForm.get('email').touched">Please enter your email</span>
+   </div>
+   <div class="form-group">
+      <input type="text" type="password" formControlName="password" placeholder="Password" required>
+      <span *ngIf="!registerForm.get('password').valid && registerForm.get('password').touched">Please enter your
+         password</span>
+   </div>
+   <div class="button-row">
+      <button type="submit" class="btn btn-primary" [disabled]="!registerForm.valid">Register</button>
+   </div>
+</form>
+</div>

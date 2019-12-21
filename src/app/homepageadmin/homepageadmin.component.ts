@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 @Component ({
   selector: 'app-user',
   templateUrl: './homepageadmin.component.html',
-  styles: []
+  styleUrls: ['./homepageadmin.component.css']
 })
 export class HomePageAdminComponent implements OnInit {
 

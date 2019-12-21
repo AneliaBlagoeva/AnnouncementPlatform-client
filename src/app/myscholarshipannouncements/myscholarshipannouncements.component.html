@@ -1,56 +1,55 @@
-<div class="col-md-6">
-  <h2> Announcement Details</h2>
+<div class="form-style-10">
+  <h1>Announcement Details</h1>
 
   <table class="table table-striped">
     <tbody>
-        <td>{{this.schAnns.anncmntID}}</td>
+        <tr>
+            <td><label>NAME</label></td>
+            <td><label>DESCRIPTION</label></td>
+            <td><label>URL</label></td>
+            <td><label>CREATED BY</label></td>
+            <td><label>CREATED ON</label></td>
+            <td><label>STATUS</label></td>
+            <td><label>MINIMAL GRADE</label></td>
+            <td><label>AWARD</label></td>
+            <td><label>REQUIREMENTS</label></td>
+            <td><label>PROGRAM ALLOWED</label></td>
+            <td><label>UNIVERSITY ALLOWED</label></td>
+            <td><label>MAX YEAR ALLOWED</label></td>
+            <td><label>DEGREE ALLOWED</label></td>
+            <td></td>
+        </tr>
+        <tr>
         <td>{{this.schAnns.anncmnt.anncmntName}}</td>
-        <td>{{this.schAnns.anncmnt.category.categoryName}}</td>
-        <td>{{this.schAnns.anncmnt.dateCreated}}</td>
         <td>{{this.schAnns.anncmnt.description}}</td>
         <td>{{this.schAnns.anncmnt.url}}</td>
-        <td>{{this.schAnns.anncmnt.status.statusName}}</td>
         <td>{{this.schAnns.anncmnt.userEmail}}</td>
-
+        <td>{{this.schAnns.anncmnt.dateCreated | date}}</td>
+        <td>{{this.schAnns.anncmnt.status.statusName}}</td>
         <td>
-          <label>Min grade requirement</label>
           <input type="text" [(ngModel)]="this.schAnns.minGrade" [disabled]="!this.isEditable">
         </td>
-
         <td>
-          <label>Scholarship award</label>
           <input type="text" [(ngModel)]="this.schAnns.scholarshipAward" [disabled]="!this.isEditable">
         </td>
-
         <td>
-          <label>Requirements</label>
           <input type="text" [(ngModel)]="this.schAnns.requirements" [disabled]="!this.isEditable">
         </td>
-
         <td>
-          <label>Program allowed</label>
           <input type="text" [(ngModel)]="this.schAnns.programAllowed" [disabled]="!this.isEditable">
         </td>
-
         <td>
-          <label>University allowed</label>
           <input type="text" [(ngModel)]="this.schAnns.universityAllowed" [disabled]="!this.isEditable">
         </td>
-
         <td>
-          <label>Year allowed</label>
           <input type="number" [(ngModel)]="this.schAnns.yearAllowed" [disabled]="!this.isEditable">
         </td>
-
         <td>
-          <label>Degree allowed</label>
           <input type="text" [(ngModel)]="this.schAnns.degreeAllowed" [disabled]="!this.isEditable">
-
         </td>
-           <td><button (click)="edit()" *ngIf="!this.isEditable">Edit</button></td>
         <td><button (click)="save(schAnns)" *ngIf="this.isEditable">Save</button></td>
-
-      <tr>
+        </tr>
+        <tr><td><button class="btn btn-primary" (click)="edit()" *ngIf="!this.isEditable">Edit</button></td></tr>
     </tbody>
   </table>
 </div>

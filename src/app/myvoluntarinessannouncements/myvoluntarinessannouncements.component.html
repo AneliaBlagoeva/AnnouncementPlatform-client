@@ -1,24 +1,33 @@
-<div class="col-md-6">
-  <h2> Announcement Details</h2>
-  
+<div class="form-style-10">
+  <h1> Announcement Details</h1>
+
   <table class="table table-striped">
     <tbody>
-      <td>{{this.volAnns.anncmntID}}</td>
-      <td>{{this.volAnns.anncmnt.anncmntId}}</td>
-      <td>{{this.volAnns.anncmnt.anncmntName}}</td>
-      <td>{{this.volAnns.anncmnt.category.categoryName}}</td>
-      <td>{{this.volAnns.anncmnt.dateCreated}}</td>
-      <td>{{this.volAnns.anncmnt.description}}</td>
-      <td>{{this.volAnns.anncmnt.url}}</td>
-      <td>{{this.volAnns.anncmnt.status.statusName}}</td>
-      <td>{{this.volAnns.anncmnt.userEmail}}</td>
-      <td>
-    <label>Announcement Organization</label>
-    <input type="text" [(ngModel)]="this.volAnns.anncmntOrganization" [disabled]="!this.isEditable">
-  </td>
-  <td><button (click)="edit()" *ngIf="!this.isEditable">Edit</button></td>
-  <td><button (click)="save(volAnns)" *ngIf="this.isEditable">Save</button></td>
-  <tr>
+      <tr>
+        <td><label>NAME</label></td>
+        <td><label>DESCRIPTION</label></td>
+        <td><label>URL</label></td>
+        <td><label>CREATED BY</label></td>
+        <td><label>CREATED ON</label></td>
+        <td><label>STATUS</label></td>
+        <td><label>ORGANIZATION</label></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>{{this.volAnns.anncmnt.anncmntName}}</td>
+        <td>{{this.volAnns.anncmnt.description}}</td>
+        <td>{{this.volAnns.anncmnt.url}}</td>
+        <td>{{this.volAnns.anncmnt.userEmail}}</td>
+        <td>{{this.volAnns.anncmnt.dateCreated | date}}</td>
+        <td>{{this.volAnns.anncmnt.status.statusName}}</td>
+        <td>
+          <input type="text" [(ngModel)]="this.volAnns.anncmntOrganization" [disabled]="!this.isEditable">
+        </td>
+      </tr>
+      <td><button class="btn btn-primary" (click)="save(volAnns)" *ngIf="this.isEditable">Save</button></td>
+      <tr>
+        <td><button class="btn btn-primary" (click)="edit()" *ngIf="!this.isEditable">Edit</button></td>
+      </tr>
     </tbody>
   </table>
-  </div>
+</div>

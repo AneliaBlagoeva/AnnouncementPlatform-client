@@ -1,20 +1,45 @@
-<div class="container-fluid">
-        <div class="col-md-offset-1">
-          <h1>
-            Welcome ADMIN !
-          </h1>
-        </div>
-        <a routerLink="/userJobAttributes"> List job users</a><br>
-        <a routerLink="/studentAttributes"> List students</a><br>
-        <a routerLink="/volunteerAttributes"> List volunteers</a><br>
-        <a routerLink="/userAttributes"> List users</a><br>
-        <a routerLink="/viewProfile"> View my profile</a><br>
-        <a routerLink="/jobAnnouncements"> List job announcements</a><br>
-        <a routerLink="/scholarshipAnnouncements"> List scholarship announcements</a><br>
-        <a routerLink="/volunteerAnnouncements"> List volunteer announcements</a><br>
-        <a routerLink="/announcements"> List announcements</a><br>
-        <a routerLink="/createAnnouncement"> Create announcement</a><br>
-        <a routerLink="/myAnnouncements"> List my announcements</a><br>
-        <br/>
-        <router-outlet></router-outlet>
-        </div>
+<html>
+<head>
+</head>
+<div>
+    <h1 class="form-style-10">
+      Welcome, ADMIN !
+    </h1>
+  </div>
+  
+<div style="width: 100%; display: table;">
+  <div style="display: table-row">
+
+      <div class="card"  style="display: table-cell">
+        <label><u>USER MANAGEMENT</u></label><br>
+        <span style='font-size:30px;'>&#10162;</span>
+        <a routerLink="/userAttributes"> VIEW USERS</a><br>
+        <span style='font-size:30px;'>&#10162;</span>
+        <a routerLink="/userJobAttributes"> VIEW JOB USERS</a><br>
+        <span style='font-size:30px;'>&#10162;</span>
+        <a routerLink="/studentAttributes"> VIEW STUDENTS</a><br>
+        <span style='font-size:30px;'>&#10162;</span>
+        <a routerLink="/volunteerAttributes"> VIEW VOLUNTEERS</a><br>
+        <span style='font-size:30px;'>&#10162;</span>
+        <a routerLink="/viewProfile"> VIEW MY PROFILE</a><br>
+      </div>
+      
+      <div class="card" style="display: table-cell">
+        <label><u>ANNOUNCEMENT MANAGEMENT</u></label><br>
+        <span style='font-size:30px;'>&#10162;</span>
+        <a routerLink="/announcements"> VIEW ANNOUNCEMENTS</a><br>
+        <span style='font-size:30px;'>&#10162;</span>
+        <a routerLink="/jobAnnouncements"> VIEW JOBS ANNOUNCEMENTS</a><br>
+        <span style='font-size:30px;'>&#10162;</span>
+        <a routerLink="/scholarshipAnnouncements"> VIEW SCHOLARSHIPS</a><br>
+        <span style='font-size:30px;'>&#10162;</span>
+        <a routerLink="/volunteerAnnouncements"> VIEW VOLUNTARINESS ANNOUNCEMENTS</a><br>
+        <span style='font-size:30px;'>&#10162;</span>
+        <a routerLink="/myAnnouncements"> VIEW MY ANNOUNCEMENTS</a><br>
+        <span style='font-size:30px;'>&#10162;</span>
+        <a routerLink="/createAnnouncement"> CREATE ANNOUNCEMENT</a>
+      </div>
+      </div>
+  <router-outlet></router-outlet>
+</div>
+</html>

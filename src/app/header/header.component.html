@@ -1,9 +1,14 @@
 <div *ngIf="!isLoggedIn">
+    <ul >
+        <li><a routerLink="/register">Register User</a></li>
+        <li><a routerLink="/login">Sign in User</a></li>
+        <li><a routerLink="/announcementsView">View Announcements</a></li>
+        <li><a routerLink="/jobAnnouncementsView">View Job Announcements</a></li>
+        <li><a routerLink="/scholarshipAnnouncementsView">List scholarship announcements</a></li>
+        <li><a routerLink="/volunteerAnnouncementsView">List volunteer announcements</a></li>
+    </ul>
 
-    <a routerLink="/register" > Register User</a>
-    <a routerLink="/login" > Sign in User</a>
-    <a routerLink="/announcementsView"> View Announcements</a>
-    <a routerLink="/jobAnnouncementsView"> View Job Announcements</a>
-    <a routerLink="/scholarshipAnnouncementsView"> List scholarship announcements</a><br>
-    <a routerLink="/volunteerAnnouncementsView"> List volunteer announcements</a><br>
+    <div style="text-align: center;" >
+            <img src="../../assets/logo.png" height="500px" width="600px" *ngIf="(router.url==='/' || router.url==='/header')">
+          </div>
 </div>
