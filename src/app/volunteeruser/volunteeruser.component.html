@@ -1,19 +1,28 @@
-<div class="col-md-6">
-        <h2> User Details</h2>
-        
-        <table class="table table-striped">
-          <tbody>
-          <tr *ngFor="let uj of volunteerattributes">
-            <td>{{uj.user.role.description}}</td>
-            <td>{{uj.email}}</td>
-            <td>{{uj.user.fName}}</td>
-            <td>{{uj.user.lName}}</td>
-            <td>{{uj.user.phone}}</td>
-            <td>{{uj.user.city}}</td>
-            <td>{{uj.user.country}}</td>
-            <td>{{uj.user.age}}</td>
-            
-          </tr>
-          </tbody>
-        </table>
-        </div>
+<div class="form-style-10">
+  <h1> User Details</h1>
+
+  <table class="table table-striped">
+    <tbody>
+      <tr>
+        <td>ROLE</td>
+        <td>EMAIL</td>
+        <td>FIRST NAME</td>
+        <td>LAST NAME</td>
+        <td>PHONE</td>
+        <td>CITY</td>
+        <td>COUNTRY</td>
+        <td>AGE</td>
+      </tr>
+      <tr *ngFor="let uj of volunteerattributes">
+        <td>{{uj.user.role.description}}</td>
+        <td>{{uj.email}}</td>
+        <td>{{uj.user.fName}}</td>
+        <td>{{uj.user.lName}}</td>
+        <td>{{uj.user.phone}}</td>
+        <td>{{uj.user.city}}</td>
+        <td>{{uj.user.country}}</td>
+        <td>{{uj.user.age}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

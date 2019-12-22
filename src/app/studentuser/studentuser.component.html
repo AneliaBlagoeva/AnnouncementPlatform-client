@@ -1,23 +1,38 @@
-<div class="col-md-6">
-        <h2> User Details</h2>
-        
-        <table class="table table-striped">
-          <tbody>
-          <tr *ngFor="let us of studentattributes">
-            <td>{{us.user.role.description}}</td>
-            <td>{{us.email}}</td>
-            <td>{{us.user.fName}}</td>
-            <td>{{us.user.lName}}</td>
-            <td>{{us.user.phone}}</td>
-            <td>{{us.user.city}}</td>
-            <td>{{us.user.country}}</td>
-            <td>{{us.user.age}}</td>
-            <td>{{us.grade}}</td>
-            <td>{{us.degree}}</td>
-            <td>{{us.program}}</td>
-            <td>{{us.university}}</td>
-            <td>{{us.year}}</td>
-          </tr>
-          </tbody>
-        </table>
-        </div>
+<div class="form-style-10">
+  <h1> User Details</h1>
+
+  <table class="table table-striped">
+    <tbody>
+      <tr>
+        <td>ROLE</td>
+        <td>EMAIL</td>
+        <td>FIRST NAME</td>
+        <td>LAST NAME</td>
+        <td>PHONE</td>
+        <td>CITY</td>
+        <td>COUNTRY</td>
+        <td>AGE</td>
+        <td>GRADE</td>
+        <td>DEGREE</td>
+        <td>PROGRAM</td>
+        <td>UNIVERSITY</td>
+        <td>YEAR</td>
+      </tr>
+      <tr *ngFor="let us of studentattributes">
+        <td>{{us.user.role.description}}</td>
+        <td>{{us.email}}</td>
+        <td>{{us.user.fName}}</td>
+        <td>{{us.user.lName}}</td>
+        <td>{{us.user.phone}}</td>
+        <td>{{us.user.city}}</td>
+        <td>{{us.user.country}}</td>
+        <td>{{us.user.age}}</td>
+        <td>{{us.grade}}</td>
+        <td>{{us.degree}}</td>
+        <td>{{us.program}}</td>
+        <td>{{us.university}}</td>
+        <td>{{us.year}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

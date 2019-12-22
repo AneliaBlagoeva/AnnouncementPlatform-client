@@ -7,7 +7,7 @@ import { StudentUserService } from './studentuser.service';
 @Component ({
   selector: 'app-user',
   templateUrl: './studentuser.component.html',
-  styles: []
+  styleUrls: ['./studentuser.component.css']
 })
 export class StudentUserComponent implements OnInit {
 

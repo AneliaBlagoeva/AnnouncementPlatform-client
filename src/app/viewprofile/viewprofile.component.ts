@@ -13,7 +13,7 @@ import { VolunteerUserService } from '../volunteeruser/volunteeruser.service';
 @Component({
   selector: 'app-user',
   templateUrl: './viewprofile.component.html',
-  styles: []
+  styleUrls: ['./viewprofile.component.css']
 })
 export class ViewProfileComponent implements OnInit {
   userattributes = new User();

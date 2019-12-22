@@ -7,7 +7,7 @@ import { JobUserService } from './jobuser.service';
 @Component ({
   selector: 'app-user',
   templateUrl: './jobuser.component.html',
-  styles: []
+  styleUrls: ['./jobuser.component.css']
 })
 export class JobUserComponent implements OnInit {
 

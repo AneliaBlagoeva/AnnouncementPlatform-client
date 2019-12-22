@@ -7,7 +7,7 @@ import { VolunteerUserService } from './volunteeruser.service';
 @Component ({
   selector: 'app-volunteeruser',
   templateUrl: './volunteeruser.component.html',
-  styles: []
+  styleUrls: ['./volunteeruser.component.css']
 })
 export class VolunteerUserComponent implements OnInit {
 
