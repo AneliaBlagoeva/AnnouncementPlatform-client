@@ -23,7 +23,7 @@
         <td>{{this.jobAnns.anncmnt.description}}</td>
         <td>{{this.jobAnns.anncmnt.url}}</td>
         <td>{{this.jobAnns.anncmnt.userEmail}}</td>
-        <td>{{this.jobAnns.anncmnt.dateCreated}}</td>
+        <td>{{this.jobAnns.anncmnt.dateCreated |date}}</td>
         <td>{{this.jobAnns.anncmnt.status.statusName}}</td>
         <td>
           <input type="text" [(ngModel)]="this.jobAnns.anncmntOrganization" [disabled]="!this.isEditable">

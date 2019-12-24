@@ -57,71 +57,69 @@ export class ViewProfileComponent implements OnInit {
   }
 
   save(user: User, jobuser: JobUser, studentuser: StudentUser, volunteeruser: VolunteerUser) {
-    let regexPhone= new RegExp('^[0]\d{3}\d{4}\d{2}$');
-    let regexAge= new RegExp('^[1-9][0-9]$');
-    let regexDecimal=new RegExp('^\d{0,2}(\.\d{0,2}){0,1}$');
-    
-    
-    if(user.fName!="" && user.lName!="" && user.password!="" && regexPhone.test(user.phone)
-    && regexAge.test(user.age))
-    {
-    this.userService.editUser(user)
-      .subscribe(res => {
-      alert("Profile is saved!");
-      }, (err) => {
-        console.log(err);
-        alert(err.error);
-      });
+    let regexPhone = new RegExp('^[0][1-9]{9}$');
+    let regexAge = new RegExp('^[1-9][0-9]$');
+    let regexDecimal = new RegExp('^[0-9]+\.[0-9]{0,2}$');
 
-    if (this.isWorker) {
-      if(jobuser.skills!=""){
-      jobuser.user = user;
-      jobuser.email = user.email;
-      this.jobUserService.createUser(jobuser)
+
+    if (user.fName != "" && user.lName != "" && user.password != "" && regexPhone.test(user.phone)
+      && regexAge.test(user.age)) {
+      this.userService.editUser(user)
         .subscribe(res => {
-        alert("Profile is saved!");
+          alert("Profile is saved!");
         }, (err) => {
           console.log(err);
           alert(err.error);
         });
-    }
-  }else{
-    alert("Your input is invalid");
-  }
 
-
-    if (this.isStudent) {
-      if(studentuser.degree!="" && studentuser.grade!=0.0 && studentuser.program!=""
-      && regexDecimal.test(studentuser.grade)){
-      studentuser.user = user;
-      studentuser.email = user.email;
-      this.studentUserService.createUser(studentuser)
-        .subscribe(res => {
-        alert("Profile is saved!");
-        }, (err) => {
-          console.log(err);
-          alert(err.error);
-        });
-      }else{
-        alert("Your input is invalid!");
+      if (this.isWorker) {
+        if (jobuser.skills != "") {
+          jobuser.user = user;
+          jobuser.email = user.email;
+          this.jobUserService.createUser(jobuser)
+            .subscribe(res => {
+              alert("Profile is saved!");
+            }, (err) => {
+              console.log(err);
+              alert(err.error);
+            });
+        }else {
+        alert("Your input is invalid");
       }
-    }
+      } 
 
-    if (this.isVolunteer) {
-      volunteeruser.user = user;
-      volunteeruser.email = user.email;
-      this.volunteerUserService.createUser(volunteeruser)
-        .subscribe(res => {
-        alert("Profile is saved!");
-        }, (err) => {
-          console.log(err);
-          alert(err.error);
-        });
-    }
-  }else{
-    alert("Your input is invalid!");
-  }
 
+      if (this.isStudent) {
+        if (studentuser.degree != "" && studentuser.grade != 0.0 && studentuser.program != ""
+          && regexDecimal.test(studentuser.grade)) {
+          studentuser.user = user;
+          studentuser.email = user.email;
+          this.studentUserService.createUser(studentuser)
+            .subscribe(res => {
+              alert("Profile is saved!");
+            }, (err) => {
+              console.log(err);
+              alert(err.error);
+            });
+        }else {
+          alert("Your input is invalid!");
+        } 
+      }
+
+      if (this.isVolunteer) {
+        volunteeruser.user = user;
+        volunteeruser.email = user.email;
+        this.volunteerUserService.createUser(volunteeruser)
+          .subscribe(res => {
+            alert("Profile is saved!");
+          }, (err) => {
+            console.log(err);
+            alert(err.error);
+          });
+      }
+    }else{
+      alert("Your input is invalid!");
+    }
   }
 
   changePass() {
