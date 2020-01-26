@@ -12,6 +12,7 @@ import { StudentUserService } from './studentuser.service';
 export class StudentUserComponent implements OnInit {
 
   studentattributes: StudentUser[];
+  isEditable=false;
 
   constructor(private router: Router, private userService: StudentUserService) {
 
@@ -25,9 +26,29 @@ export class StudentUserComponent implements OnInit {
   }
 
   deleteUser(studentattributes: StudentUser): void {
+    if(confirm("Are you sure you want to delete?")){
     this.userService.deleteUser(studentattributes.email)
       .subscribe( data => {
         this.studentattributes = this.studentattributes.filter(u => u !== studentattributes);
       });
   }
+}
+
+onOptionsSelected(event) {
+  console.log(event); //option value will be sent as event
+}
+
+editUser(){
+  this.isEditable=true;
+}
+
+saveUser(user: StudentUser): void {
+  if (confirm("Are you sure you want to edit?")) {
+    this.userService.editUser(user)
+    .subscribe(res => {
+      alert("User is saved!");
+    });
+  }
+  this.isEditable=false;
+}
 }

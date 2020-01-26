@@ -26,10 +26,12 @@ export class HomepageauthuserComponent implements OnInit {
   }
 
   deleteUser(): void {
+    if(confirm("Are you sure you want to delete your account?")){
      this.userService.deleteUser(this.user)
       .subscribe( data => {
          this.router.navigate(['login']);
       });
+    }
 
   }
 

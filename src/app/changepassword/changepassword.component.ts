@@ -21,7 +21,8 @@ export class ChangepasswordComponent implements OnInit {
   ngOnInit() {
     this.changePassForm = this.formBuilder.group({
       email : ['', Validators.required],
-      password : ['', Validators.required]
+      password : ['', Validators.required],
+      passwordTwo: ['', Validators.required]
     });
   }
 
@@ -29,6 +30,9 @@ export class ChangepasswordComponent implements OnInit {
     get f() { return this.changePassForm.controls; }
 
   onFormSubmit() {
+    if(confirm("Are you sure you want to change?")){
+    if(this.f.password.value==this.f.passwordTwo.value)
+    {
     this.authService.changePass(this.f.email.value, this.f.password.value)
       .subscribe(res => {
         alert("Password is changed!")
@@ -37,8 +41,12 @@ export class ChangepasswordComponent implements OnInit {
         console.log(err);
         alert(err.error);
       });
+    }
+    else{
+      alert("Passwords are different!")
+    }
   }
-
+  }
 }
 
 /** Error when invalid control is dirty, touched, or submitted. */

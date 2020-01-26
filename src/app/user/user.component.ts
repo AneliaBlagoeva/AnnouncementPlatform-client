@@ -4,37 +4,50 @@ import { User } from '../models/user.model';
 import { UserService } from './user.service';
 import { Router } from '@angular/router';
 
-@Component ({
+@Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css']
 })
+
 export class UserComponent implements OnInit {
   userattributes: User[];
+  isEditable=false;
 
   constructor(
     private router: Router,
-    private userService: UserService) {}
+    private userService: UserService) { }
 
   ngOnInit() {
     this.userService.getUsers()
-      .subscribe( data => {
+      .subscribe(data => {
         this.userattributes = data;
       });
   }
 
-
-  deleteUser(user: User): void {
-    this.userService.deleteUser(user)
-      .subscribe( data => {
-        this.userattributes = this.userattributes.filter(u => u !== user);
-      });
+  onOptionsSelected(event) {
+    console.log(event); //option value will be sent as event
   }
 
-  editUser(user: User): void {
-    this.userService.editUser(user)
-      .subscribe( data => {
-        this.userattributes = this.userattributes.filter(u => u !== user);
+  deleteUser(user: User): void {
+    if (confirm("Are you sure you want to delete?")) {
+      this.userService.deleteUser(user)
+        .subscribe(data => {
+          this.userattributes = this.userattributes.filter(u => u !== user);
+        });
+    }
+  }
+
+  editUser(){
+    this.isEditable=true;
+  }
+  saveUser(user: User): void {
+    if (confirm("Are you sure you want to edit?")) {
+      this.userService.editUser(user)
+      .subscribe(res => {
+        alert("User is saved!");
       });
+    }
+    this.isEditable=false;
   }
 }

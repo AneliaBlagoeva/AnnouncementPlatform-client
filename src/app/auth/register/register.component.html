@@ -25,11 +25,6 @@
 
    </div>
    <div class="form-group">
-      <input type="text" formControlName="age" placeholder="Age">
-      <span *ngIf="!registerForm.get('age').valid && registerForm.get('age').touched">Please enter your age. Number
-         between 10 and 99</span>
-   </div>
-   <div class="form-group">
       <input type="text" type="email" formControlName="email" placeholder="Email">
       <span *ngIf="!registerForm.get('email').valid && registerForm.get('email').touched">Please enter your email</span>
    </div>

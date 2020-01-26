@@ -1,5 +1,5 @@
 <div class="form-style-10">
-  <h1> Announcement Details</h1>
+  <h1>Scholarship Announcements Details</h1>
 
   <table class="table table-striped">
     <tbody>
@@ -8,7 +8,7 @@
             <td><label>DESCRIPTION</label></td>
             <td><label>URL</label></td>
             <td><label>CREATED BY</label></td>
-            <td><label>CREATED ON</label></td>
+            <td><label>EXPIRATION DATE</label></td>
             <td><label>STATUS</label></td>
             <td><label>MINIMAL GRADE</label></td>
             <td><label>AWARD</label></td>
@@ -44,12 +44,17 @@
         <td>
           <input type="number" [(ngModel)]="this.sa.yearAllowed" [disabled]="!this.isEditable" > 
         </td>
-        <td>
-          <input type="text" [(ngModel)]="this.sa.degreeAllowed" [disabled]="!this.isEditable">
-        </td>
-        <td><button class="btn btn-primary" (click)="edit()" *ngIf="!this.isEditable">Edit</button></td>
-        <td><button class="btn btn-primary" (click)="save(sa)" *ngIf="this.isEditable">Save</button></td>
-      <tr>
+        <td><select [(ngModel)]="this.sa.degreeAllowed.id" id="#" [disabled]="!this.isEditable"
+          (ngModelChange)='onOptionsSelected($event)'>
+          <option value="1">Bachelor</option>
+          <option value="2">Master</option>
+          <option value="3">Doctor</option>
+        </select></td>
+        </tr>
+        <tr>
+        <td><button class="btn btn-primary" (click)="edit()">Edit</button></td>
+        <td><button class="btn btn-primary" (click)="save(sa)">Save</button></td>
+        </tr>
     </tbody>
   </table>
 </div>

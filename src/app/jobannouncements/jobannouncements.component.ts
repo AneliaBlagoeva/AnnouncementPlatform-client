@@ -29,6 +29,7 @@ export class JobAnnouncementsComponent implements OnInit {
   }
 
   save(announcement: JobAnnouncement) {
+    if(confirm("Are you sure you want to save?")){
     if(announcement.anncmntOrganization=="" || announcement.requirements=="")
     {
       alert("Your input is invalid!");
@@ -42,5 +43,6 @@ export class JobAnnouncementsComponent implements OnInit {
       });
     }
   }
-
+  this.isEditable=false;
+  }
 }

@@ -1,5 +1,5 @@
 <div class="form-style-10">
-  <h1> User Details</h1>
+  <h1>My profile</h1>
 
   <table class="table table-striped">
     <tbody>
@@ -10,7 +10,6 @@
         <td><label>PHONE</label></td>
         <td><label>CITY</label></td>
         <td><label>COUNTRY</label></td>
-        <td><label>AGE</label></td>
       </tr>
       <tr>
         <td>{{userattributes.email}}</td>
@@ -29,36 +28,8 @@
         <td>
           <input type="text" [(ngModel)]="this.userattributes.country" [disabled]="!this.isEditable">
         </td>
-        <td>
-          <input type="number" [(ngModel)]="this.userattributes.age" [disabled]="!this.isEditable">
-        </td>
       </tr>
-      <tr>
-        <td>
-          <label>Worker</label>
-          <input type="checkbox" [(ngModel)]="this.isWorker" [disabled]="!this.isEditable">
-        </td>
-        <td>
-          <label>Student</label>
-          <input type="checkbox" [(ngModel)]="this.isStudent" [disabled]="!this.isEditable">
-        </td>
-        <td>
-          <label>Volunteer</label>
-          <input type="checkbox" [(ngModel)]="this.isVolunteer" [disabled]="!this.isEditable">
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <button class="btn btn-primary"  (click)="edit()" *ngIf="!this.isEditable">Edit</button>
-          <button class="btn btn-primary" 
-            (click)="save(userattributes,jobuserattributes,studentuserattributes,volunteeruserattributes)" *ngIf="this.isEditable">Save</button>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <button class="btn btn-primary" (click)="changePass()">Change my password</button>
-        </td>
-      </tr>
+
     </tbody>
   </table>
 </div>
@@ -92,20 +63,17 @@
     <tbody>
       <tr>
         <td><label>GRADE</label></td>
-        <td><label>DEGREE</label></td>
         <td><label>UNIVERSITY</label></td>
         <td><label>PROGRAM</label></td>
         <td><label>YEAR</label></td>
+        <td><label>DEGREE</label></td>
       </tr>
       <tr>
         <td>
           <input type="number" [(ngModel)]="this.studentuserattributes.grade"
             [disabled]="!(this.isEditable && this.isStudent)">
         </td>
-        <td>
-          <input type="text" [(ngModel)]="this.studentuserattributes.degree"
-            [disabled]="!(this.isEditable && this.isStudent)">
-        </td>
+
         <td>
           <input type="text" [(ngModel)]="this.studentuserattributes.university"
             [disabled]="!(this.isEditable && this.isStudent)">
@@ -117,6 +85,46 @@
         <td>
           <input type="number" [(ngModel)]="this.studentuserattributes.year"
             [disabled]="!(this.isEditable && this.isStudent)">
+        </td>
+        <td><select [(ngModel)]="this.studentuserattributes.degree.id" id="#"
+            [disabled]="!(this.isEditable && this.isStudent)" (ngModelChange)='onOptionsSelected($event)'>
+            <option value="1">Bachelor</option>
+            <option value="2">Master</option>
+            <option value="3">Doctor</option>
+          </select></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="form-style-10">
+  <table class="table table-striped">
+    <tbody>
+      <tr>
+        <td>
+          <label>Worker</label>
+          <input type="checkbox" [(ngModel)]="this.isWorker" [disabled]="!this.isEditable">
+        </td>
+        <td>
+          <label>Student</label>
+          <input type="checkbox" [(ngModel)]="this.isStudent" [disabled]="!this.isEditable">
+        </td>
+        <td>
+          <label>Volunteer</label>
+          <input type="checkbox" [(ngModel)]="this.isVolunteer" [disabled]="!this.isEditable">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <button class="btn btn-primary" (click)="edit()" [disabled]="this.isEditable">Edit</button>
+        </td>
+        <td>
+          <button class="btn btn-primary"
+            (click)="save(userattributes,jobuserattributes,studentuserattributes,volunteeruserattributes)"
+            [disabled]="!this.isEditable">Save</button>
+        </td>
+        <td>
+          <button class="btn btn-primary" (click)="changePass()">Change my password</button>
         </td>
       </tr>
     </tbody>

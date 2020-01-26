@@ -4,19 +4,23 @@ export class StudentUser {
     {
       email: string;
       phone: string;
-      age: Number;
       city: string;
       country: string;
       fName: string;
       lName: string;
       role:
       {
+      id:null;
       description: string;
       }
     }
     password: string;
     grade: null;
-    degree: string;
+    degree: 
+    {
+      id: Number;
+      description: String;
+    };
     university: string;
     program: string;
     year: Number;

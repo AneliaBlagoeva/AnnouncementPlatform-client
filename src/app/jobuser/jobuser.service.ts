@@ -28,4 +28,7 @@ export class JobUserService {
     return this.http.post<JobUser>(this.userUrl, userjobattributes);
   }
 
+  public editUser(userjobattributes: JobUser) {
+    return this.http.put<JobUser>(this.userUrl, userjobattributes);
+  }
 }

@@ -3,6 +3,7 @@ import { ScholarshipAnnouncement } from '../models/scholarshipannouncement.model
 import { Router, ActivatedRoute } from '@angular/router';
 import { ScholarshipAnnouncementService } from '../scholarshipannouncements/scholarshipannouncements.service';
 import { Announcement } from '../models/announcement.model';
+import { Degree } from '../models/degree.model';
 
 @Component({
   selector: 'app-myscholarshipannouncements',
@@ -11,25 +12,28 @@ import { Announcement } from '../models/announcement.model';
 })
 export class MyScholarshipAnnouncementsComponent implements OnInit {
 
-   schAnns = new ScholarshipAnnouncement();
-   anns:Announcement;
-   private sub: any;
-   isEditable: boolean;
+  schAnns = new ScholarshipAnnouncement();
+  anns: Announcement;
+  private sub: any;
+  isEditable = false;
 
   constructor(
     private router: ActivatedRoute,
-    private scholarshipAnnService: ScholarshipAnnouncementService) {}
+    private scholarshipAnnService: ScholarshipAnnouncementService) { }
+
+  onOptionsSelected(event) {
+    console.log(event); //option value will be sent as event
+  }
 
   ngOnInit() {
-     this.sub = this.router.params.subscribe(params => {
+    this.sub = this.router.params.subscribe(params => {
       this.anns = JSON.parse(params['anns']);
     });
 
-     this.scholarshipAnnService.getScholarshipById(this.anns.anncmntId)
+    this.scholarshipAnnService.getScholarshipById(this.anns.anncmntId)
       .subscribe(data => {
         if (data == null) {
-          this.schAnns = new ScholarshipAnnouncement();
-
+          this.schAnns.degreeAllowed = new Degree();
         } else {
           this.schAnns = data;
         }
@@ -41,23 +45,23 @@ export class MyScholarshipAnnouncementsComponent implements OnInit {
   }
 
   save(announcement: ScholarshipAnnouncement) {
-    let regexDecimal=new RegExp('^\d{0,2}(\.\d{0,2}){0,1}$');
-    if(announcement.minGrade==0.0 ||announcement.scholarshipAward==0.0
-      || announcement.requirements=="" || !regexDecimal.test(announcement.minGrade)
-      || !regexDecimal.test(announcement.scholarshipAward))
-      {
+    if (confirm("Are you sure you want to save?")) {
+      if (announcement.minGrade == 0.0 || announcement.scholarshipAward == 0.0
+        || announcement.requirements == "") {
         alert("Your input is invalid!");
-      }else{
-    announcement.anncmnt = this.anns;
-    announcement.anncmntID = this.anns.anncmntId;
-    this.scholarshipAnnService.editAnn(announcement)
-      .subscribe(res => {
-      alert("Announcement is edited!")
-      }, (err) => {
-        console.log(err);
-        alert(err.error);
-      });
+      } else {
+        announcement.anncmnt = this.anns;
+        announcement.anncmntID = this.anns.anncmntId;
+        this.scholarshipAnnService.editAnn(announcement)
+          .subscribe(res => {
+            alert("Announcement is edited!")
+            this.isEditable = false;
+          }, (err) => {
+            console.log(err);
+            alert(err.error);
+          });
+      }
     }
+    this.isEditable = false;
   }
-
 }

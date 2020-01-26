@@ -12,6 +12,7 @@ import { VolunteerUserService } from './volunteeruser.service';
 export class VolunteerUserComponent implements OnInit {
 
   volunteerattributes: VolunteerUser[];
+  isEditable=false;
 
   constructor(private router: Router, private userService: VolunteerUserService) {
 
@@ -25,9 +26,12 @@ export class VolunteerUserComponent implements OnInit {
   }
 
   deleteUser(volunteerattributes: VolunteerUser): void {
+    if(confirm("Are you sure you want to delete?")){
     this.userService.deleteUser(volunteerattributes.email)
       .subscribe( data => {
         this.volunteerattributes = this.volunteerattributes.filter(u => u !== volunteerattributes);
       });
   }
+}
+
 }

@@ -1,55 +1,81 @@
 <div class="form-style-10">
-  <h1>Announcement Details</h1>
+  <h1>My Scholarship Announcement Details</h1>
 
   <table class="table table-striped">
     <tbody>
-        <tr>
-            <td><label>NAME</label></td>
-            <td><label>DESCRIPTION</label></td>
-            <td><label>URL</label></td>
-            <td><label>CREATED BY</label></td>
-            <td><label>CREATED ON</label></td>
-            <td><label>STATUS</label></td>
-            <td><label>MINIMAL GRADE</label></td>
-            <td><label>AWARD</label></td>
-            <td><label>REQUIREMENTS</label></td>
-            <td><label>PROGRAM ALLOWED</label></td>
-            <td><label>UNIVERSITY ALLOWED</label></td>
-            <td><label>MAX YEAR ALLOWED</label></td>
-            <td><label>DEGREE ALLOWED</label></td>
-            <td></td>
-        </tr>
-        <tr>
+      <tr>
+        <td><label>NAME</label></td>
         <td>{{this.schAnns.anncmnt.anncmntName}}</td>
+      </tr>
+      <tr>
+        <td><label>DESCRIPTION</label></td>
         <td>{{this.schAnns.anncmnt.description}}</td>
+      </tr>
+      <tr>
+        <td><label>URL</label></td>
         <td>{{this.schAnns.anncmnt.url}}</td>
+      </tr>
+      <tr>
+        <td><label>CREATED BY</label></td>
         <td>{{this.schAnns.anncmnt.userEmail}}</td>
+      </tr>
+      <tr>
+        <td><label>EXPIRATION DATE</label></td>
         <td>{{this.schAnns.anncmnt.dateCreated | date}}</td>
+      </tr>
+      <tr>
+        <td><label>STATUS</label></td>
         <td>{{this.schAnns.anncmnt.status.statusName}}</td>
+      </tr>
+      <tr>
+        <td><label>MINIMAL GRADE</label></td>
         <td>
           <input type="text" [(ngModel)]="this.schAnns.minGrade" [disabled]="!this.isEditable">
         </td>
+      </tr>
+      <tr>
+        <td><label>AWARD</label></td>
         <td>
           <input type="text" [(ngModel)]="this.schAnns.scholarshipAward" [disabled]="!this.isEditable">
         </td>
+      </tr>
+      <tr>
+        <td><label>REQUIREMENTS</label></td>
         <td>
           <input type="text" [(ngModel)]="this.schAnns.requirements" [disabled]="!this.isEditable">
         </td>
+      </tr>
+      <tr>
+        <td><label>PROGRAM ALLOWED</label></td>
         <td>
           <input type="text" [(ngModel)]="this.schAnns.programAllowed" [disabled]="!this.isEditable">
         </td>
+      </tr>
+      <tr>
+        <td><label>UNIVERSITY ALLOWED</label></td>
         <td>
           <input type="text" [(ngModel)]="this.schAnns.universityAllowed" [disabled]="!this.isEditable">
         </td>
+      </tr>
+      <tr>
+        <td><label>MAX YEAR ALLOWED</label></td>
         <td>
           <input type="number" [(ngModel)]="this.schAnns.yearAllowed" [disabled]="!this.isEditable">
         </td>
-        <td>
-          <input type="text" [(ngModel)]="this.schAnns.degreeAllowed" [disabled]="!this.isEditable">
-        </td>
-        <td><button (click)="save(schAnns)" *ngIf="this.isEditable">Save</button></td>
-        </tr>
-        <tr><td><button class="btn btn-primary" (click)="edit()" *ngIf="!this.isEditable">Edit</button></td></tr>
+      </tr>
+      <tr>
+        <td><label>DEGREE ALLOWED</label></td>
+        <td><select [(ngModel)]="this.schAnns.degreeAllowed.id" id="#" [disabled]="!this.isEditable"
+            (ngModelChange)='onOptionsSelected($event)'>
+            <option value="1">Bachelor</option>
+            <option value="2">Master</option>
+            <option value="3">Doctor</option>
+          </select></td>
+      </tr>
+      <tr>
+        <td><button class="btn btn-primary" (click)="save(schAnns)" [disabled]="!this.isEditable">Save</button></td>
+        <td><button class="btn btn-primary" (click)="edit()" [disabled]="this.isEditable">Edit</button></td>
+      </tr>
     </tbody>
   </table>
 </div>

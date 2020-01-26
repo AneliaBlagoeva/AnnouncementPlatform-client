@@ -32,4 +32,8 @@ export class StudentUserService {
     return this.http.post<StudentUser>(this.userUrl, studentattributes);
   }
 
+  public editUser(studentattributes: StudentUser) {
+    return this.http.put<StudentUser>(this.userUrl, studentattributes);
+  }
+
 }

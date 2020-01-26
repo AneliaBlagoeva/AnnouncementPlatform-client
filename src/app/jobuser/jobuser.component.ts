@@ -12,6 +12,7 @@ import { JobUserService } from './jobuser.service';
 export class JobUserComponent implements OnInit {
 
   userjobattributes: JobUser[];
+  isEditable=false;
 
   constructor(private router: Router, private userService: JobUserService) {
 
@@ -23,4 +24,18 @@ export class JobUserComponent implements OnInit {
         this.userjobattributes = data;
       });
   }
+
+  editUser(){
+    this.isEditable=true;
+  }
+  saveUser(userjobattributes: JobUser): void {
+    if (confirm("Are you sure you want to edit?")) {
+      this.userService.editUser(userjobattributes)
+      .subscribe(res => {
+        alert("User is saved!");
+      });
+    }
+    this.isEditable=false;
+  }
+  
 }

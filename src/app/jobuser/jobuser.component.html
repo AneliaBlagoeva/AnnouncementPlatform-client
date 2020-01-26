@@ -1,5 +1,5 @@
 <div class="form-style-10">
-<h1> User Details</h1>
+<h1>Job User Details</h1>
 
 <table class="table table-striped">
   <tbody>
@@ -11,9 +11,9 @@
       <td><label>PHONE</label></td>
       <td><label>CITY</label></td>
       <td><label>COUNTRY</label></td>
-      <td><label>AGE</label></td>
       <td><label>EXPERIENCE</label></td>
       <td><label>SKILLS</label></td>
+      <td></td>
     </tr>
   <tr *ngFor="let uj of userjobattributes">
     <td>{{uj.user.role.description}}</td>
@@ -23,9 +23,12 @@
     <td>{{uj.user.phone}}</td>
     <td>{{uj.user.city}}</td>
     <td>{{uj.user.country}}</td>
-    <td>{{uj.user.age}}</td>
-    <td>{{uj.experience}}</td>
-    <td>{{uj.skills}}</td>
+    <td><input type="text" [(ngModel)]="this.uj.experience" [disabled]="!this.isEditable">
+    </td>
+    <td><input type="text" [(ngModel)]="this.uj.skills" [disabled]="!this.isEditable">
+    </td>
+    <td><button class="btn btn-danger" (click)="editUser()" *ngIf="!this.isEditable">Edit</button></td>
+    <td><button class="btn btn-danger" (click)="saveUser(us)" *ngIf="this.isEditable">Save</button></td>  
   </tr>
   </tbody>
 </table>

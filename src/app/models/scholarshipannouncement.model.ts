@@ -24,5 +24,9 @@ export class ScholarshipAnnouncement {
   programAllowed: null;
   universityAllowed: null;
   yearAllowed: null;
-  degreeAllowed: null;
+  degreeAllowed:
+  {
+    id: Number;
+    description: String;
+  };
 }

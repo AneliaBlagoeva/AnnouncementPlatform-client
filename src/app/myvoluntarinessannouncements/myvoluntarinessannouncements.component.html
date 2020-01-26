@@ -1,32 +1,41 @@
 <div class="form-style-10">
-  <h1> Announcement Details</h1>
+  <h1>My Voluntariness Announcement Details</h1>
 
   <table class="table table-striped">
     <tbody>
       <tr>
         <td><label>NAME</label></td>
-        <td><label>DESCRIPTION</label></td>
-        <td><label>URL</label></td>
-        <td><label>CREATED BY</label></td>
-        <td><label>CREATED ON</label></td>
-        <td><label>STATUS</label></td>
-        <td><label>ORGANIZATION</label></td>
-        <td></td>
+        <td>{{this.volAnns.anncmnt.anncmntName}}</td>
       </tr>
       <tr>
-        <td>{{this.volAnns.anncmnt.anncmntName}}</td>
+        <td><label>DESCRIPTION</label></td>
         <td>{{this.volAnns.anncmnt.description}}</td>
+      </tr>
+      <tr>
+        <td><label>URL</label></td>
         <td>{{this.volAnns.anncmnt.url}}</td>
+      </tr>
+      <tr>
+        <td><label>CREATED BY</label></td>
         <td>{{this.volAnns.anncmnt.userEmail}}</td>
+      </tr>
+      <tr>
+        <td><label>EXPIRATION DATE</label></td>
         <td>{{this.volAnns.anncmnt.dateCreated | date}}</td>
+      </tr>
+      <tr>
+        <td><label>STATUS</label></td>
         <td>{{this.volAnns.anncmnt.status.statusName}}</td>
+      </tr>
+      <tr>
+        <td><label>ORGANIZATION</label></td>
         <td>
           <input type="text" [(ngModel)]="this.volAnns.anncmntOrganization" [disabled]="!this.isEditable">
         </td>
       </tr>
-      <td><button class="btn btn-primary" (click)="save(volAnns)" *ngIf="this.isEditable">Save</button></td>
       <tr>
-        <td><button class="btn btn-primary" (click)="edit()" *ngIf="!this.isEditable">Edit</button></td>
+      <td><button class="btn btn-primary" (click)="save(volAnns)" [disabled]="!this.isEditable">Save</button></td>
+      <td><button class="btn btn-primary" (click)="edit()" [disabled]="this.isEditable">Edit</button></td>
       </tr>
     </tbody>
   </table>

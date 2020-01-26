@@ -1,5 +1,5 @@
 <div class="form-style-10">
-  <h1> User Details</h1>
+  <h1>Students Details</h1>
 
   <table class="table table-striped">
     <tbody>
@@ -11,12 +11,12 @@
         <td>PHONE</td>
         <td>CITY</td>
         <td>COUNTRY</td>
-        <td>AGE</td>
         <td>GRADE</td>
         <td>DEGREE</td>
         <td>PROGRAM</td>
         <td>UNIVERSITY</td>
         <td>YEAR</td>
+        <td></td>
       </tr>
       <tr *ngFor="let us of studentattributes">
         <td>{{us.user.role.description}}</td>
@@ -26,13 +26,24 @@
         <td>{{us.user.phone}}</td>
         <td>{{us.user.city}}</td>
         <td>{{us.user.country}}</td>
-        <td>{{us.user.age}}</td>
-        <td>{{us.grade}}</td>
-        <td>{{us.degree}}</td>
-        <td>{{us.program}}</td>
-        <td>{{us.university}}</td>
-        <td>{{us.year}}</td>
+        <td><input type="text" [(ngModel)]="this.us.grade" [disabled]="!this.isEditable">
+        </td>
+        <td><select [(ngModel)]="this.us.degree.id" id="#" [disabled]="!this.isEditable"
+          (ngModelChange)='onOptionsSelected($event)'>
+          <option value="1">Bachelor</option>
+          <option value="2">Master</option>
+          <option value="3">Doctor</option>
+      </select></td>
+        <td><input type="text" [(ngModel)]="this.us.program" [disabled]="!this.isEditable">
+        </td>
+        <td><input type="text" [(ngModel)]="this.us.university" [disabled]="!this.isEditable">
+        </td>
+        <td><input type="text" [(ngModel)]="this.us.year" [disabled]="!this.isEditable">
+        </td>
+        <td><button class="btn btn-danger" (click)="editUser()" *ngIf="!this.isEditable">Edit</button></td>
+        <td><button class="btn btn-danger" (click)="saveUser(us)" *ngIf="this.isEditable">Save</button></td>
       </tr>
+
     </tbody>
   </table>
 </div>

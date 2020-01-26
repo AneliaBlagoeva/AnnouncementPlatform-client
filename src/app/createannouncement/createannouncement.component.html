@@ -19,6 +19,10 @@
          <input type="text" formControlName="url" placeholder="Url">
          <span *ngIf="!createForm.get('url').valid && createForm.get('url').touched">Please enter url</span>
       </div>
+      <div class="form-group">
+         <input type="text" formControlName="dateCreated" placeholder="Expiration date">
+         <span *ngIf="!createForm.get('dateCreated').valid && createForm.get('dateCreated').touched">Please enter date in format yyyy-mm-dd</span>
+      </div>
      
       
       <div>

@@ -40,11 +40,11 @@ export class AuthService {
       );
   }
 
-  register(fullName: any, em: any, pass: any, lastname: any, phone: any, c: any, cntry: any, age: any): Observable<any> {
+  register(fullName: any, em: any, pass: any, lastname: any, phone: any, c: any, cntry: any): Observable<any> {
     // tslint:disable-next-line: max-line-length
     return this.http.post<any>('http://localhost:8080/api/auth/register', {
-      email: em, fName: fullName, lName: lastname, age: age, city: c, phone: phone, country: cntry, password: pass, role: {
-        description: 'USER'
+      email: em, fName: fullName, lName: lastname, city: c, phone: phone, country: cntry, password: pass, role: {
+        id: 2
       }
     })
       .pipe(

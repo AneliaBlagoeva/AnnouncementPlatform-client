@@ -32,4 +32,7 @@ export class VolunteerUserService {
     return this.http.post<VolunteerUser>(this.userUrl, volunteerattributes);
   }
 
+  public editUser(volunteerattributes: VolunteerUser) {
+    return this.http.put<VolunteerUser>(this.userUrl, volunteerattributes);
+  }
 }

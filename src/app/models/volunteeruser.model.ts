@@ -4,14 +4,14 @@ export class VolunteerUser {
     {
       email: string;
       phone: string;
-      age: Number;
       city: string;
       country: string;
       fName: string;
       lName: string;
       role:
     {
-      description: string;
+      id:null;
+      description: null;
     }
       password: string;
     };

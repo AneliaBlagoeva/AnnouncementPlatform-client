@@ -42,19 +42,21 @@ export class MyJobAnnouncementsComponent implements OnInit {
   }
 
   save(announcement: JobAnnouncement) {
-    if(announcement.anncmntOrganization=="" || announcement.requirements=="")
-    {
-      alert("Your input is invalid!");
-    }else{
-    announcement.anncmnt = this.anns;
-    announcement.anncmntID = this.anns.anncmntId;
-    this.jobAnnService.editAnn(announcement)
-      .subscribe(res => {
-      alert("Announcement is edited!")
-      }, (err) => {
-        console.log(err);
-        alert(err.error);
-      });
-  }
+    if (confirm("Are you sure you want to save?")) {
+      if (announcement.anncmntOrganization == "" || announcement.requirements == "") {
+        alert("Your input is invalid!");
+      } else {
+        announcement.anncmnt = this.anns;
+        announcement.anncmntID = this.anns.anncmntId;
+        this.jobAnnService.editAnn(announcement)
+          .subscribe(res => {
+            alert("Announcement is edited!")
+          }, (err) => {
+            console.log(err);
+            alert(err.error);
+          });
+      }
+    }
+    this.isEditable = false;
   }
 }

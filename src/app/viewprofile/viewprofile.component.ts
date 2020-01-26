@@ -9,6 +9,7 @@ import { VolunteerUser } from '../models/volunteeruser.model';
 import { JobUserService } from '../jobuser/jobuser.service';
 import { StudentUserService } from '../studentuser/studentuser.service';
 import { VolunteerUserService } from '../volunteeruser/volunteeruser.service';
+import { Degree } from '../models/degree.model';
 
 @Component({
   selector: 'app-user',
@@ -20,7 +21,7 @@ export class ViewProfileComponent implements OnInit {
   jobuserattributes = new JobUser();
   studentuserattributes = new StudentUser();
   volunteeruserattributes = new VolunteerUser();
-  isEditable: boolean;
+  isEditable = false;
   isWorker: boolean;
   isStudent: boolean;
   isVolunteer: boolean;
@@ -32,22 +33,34 @@ export class ViewProfileComponent implements OnInit {
     private studentUserService: StudentUserService,
     private volunteerUserService: VolunteerUserService) { }
 
+  onOptionsSelected(event) {
+    console.log(event); //option value will be sent as event
+  }
+
   ngOnInit() {
     let em = localStorage.getItem('currentUserEmail');
-
     this.userService.getUserByEmail(em.substring(1, em.length - 1))
       .subscribe(data => {
-        this.userattributes = data;
+        if (data.email != null) {
+          this.userattributes = data;
+        }
       })
 
     this.jobUserService.getUserByEmail(em.substring(1, em.length - 1))
       .subscribe(data => {
-        this.jobuserattributes = data;
+        if (data.email != null) {
+          this.jobuserattributes = data;
+        }
       })
 
     this.studentUserService.getUserByEmail(em.substring(1, em.length - 1))
       .subscribe(data => {
-        this.studentuserattributes = data;
+        if (data.email != null) {
+          this.studentuserattributes = data;
+        }
+        else {
+          this.studentuserattributes.degree = new Degree();
+        }
       })
 
   }
@@ -57,17 +70,15 @@ export class ViewProfileComponent implements OnInit {
   }
 
   save(user: User, jobuser: JobUser, studentuser: StudentUser, volunteeruser: VolunteerUser) {
+    if(confirm("Are you sure you want to save?")){
     let regexPhone = new RegExp('^[0][1-9]{9}$');
-    let regexAge = new RegExp('^[1-9][0-9]$');
-    let regexDecimal = new RegExp('^[0-9]+\.[0-9]{0,2}$');
+    let flag = true;
 
-
-    if (user.fName != "" && user.lName != "" && user.password != "" && regexPhone.test(user.phone)
-      && regexAge.test(user.age)) {
+    if (user.fName != "" && user.lName != "" && user.password != "" && regexPhone.test(user.phone)) {
       this.userService.editUser(user)
         .subscribe(res => {
-          alert("Profile is saved!");
         }, (err) => {
+          flag = false;
           console.log(err);
           alert(err.error);
         });
@@ -78,32 +89,33 @@ export class ViewProfileComponent implements OnInit {
           jobuser.email = user.email;
           this.jobUserService.createUser(jobuser)
             .subscribe(res => {
-              alert("Profile is saved!");
+
             }, (err) => {
+              flag = false;
               console.log(err);
               alert(err.error);
             });
-        }else {
-        alert("Your input is invalid");
+        } else {
+          alert("Your input is invalid");
+        }
       }
-      } 
 
 
       if (this.isStudent) {
-        if (studentuser.degree != "" && studentuser.grade != 0.0 && studentuser.program != ""
-          && regexDecimal.test(studentuser.grade)) {
+        if (studentuser.grade != 0.0 && studentuser.program != "") {
           studentuser.user = user;
           studentuser.email = user.email;
           this.studentUserService.createUser(studentuser)
             .subscribe(res => {
-              alert("Profile is saved!");
+
             }, (err) => {
+              flag = false;
               console.log(err);
               alert(err.error);
             });
-        }else {
+        } else {
           alert("Your input is invalid!");
-        } 
+        }
       }
 
       if (this.isVolunteer) {
@@ -111,16 +123,22 @@ export class ViewProfileComponent implements OnInit {
         volunteeruser.email = user.email;
         this.volunteerUserService.createUser(volunteeruser)
           .subscribe(res => {
-            alert("Profile is saved!");
           }, (err) => {
+            flag = false;
             console.log(err);
             alert(err.error);
           });
       }
-    }else{
+    } else {
       alert("Your input is invalid!");
     }
+
+    if (flag) {
+      alert("Profile is saved");
+      this.isEditable=false;
+    }
   }
+}
 
   changePass() {
     this.router.navigate(['changePass']);

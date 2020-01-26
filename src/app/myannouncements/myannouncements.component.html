@@ -8,9 +8,9 @@
         <td><label>CATEGORY</label></td>
         <td><label>DESCRIPTION</label></td>
         <td><label>URL</label></td>
-        <td><label>CREATED BY</label></td>
-        <td><label>CREATED ON</label></td>
+        <td><label>EXPIRATION DATE</label></td>
         <td><label>STATUS</label></td>
+        <td></td>
         <td></td>
         <td></td>
       </tr>
@@ -21,20 +21,21 @@
         <td>
           {{a.category.categoryName}}
           </td>
-        <td><select [(ngModel)]="this.a.status.statusId" id="#" [disabled]="!this.isEditable"
-            (ngModelChange)='onOptionsSelected($event)'>
-            <option value="1">active</option>
-            <option value="2">unactive</option>
-          </select></td>
         <td>
           <textarea [(ngModel)]="this.a.description" [disabled]="!this.isEditable"></textarea>
         </td>
         <td>
           <input type="text" [(ngModel)]="this.a.url" [disabled]="!this.isEditable">
         </td>
-        <td>{{a.userEmail}}</td>
-        <td>{{a.dateCreated | date}}</td>
-        <td><button class="btn btn-danger" (click)="deleteAnn(a)"> Delete announcement</button></td>
+        <td>
+          <input type="text" [(ngModel)]="this.a.dateCreated" [disabled]="!this.isEditable">         
+        </td>
+        <td><select [(ngModel)]="this.a.status.statusId" id="#" [disabled]="!this.isEditable"
+          (ngModelChange)='onOptionsSelected($event)'>
+          <option value="1">active</option>
+          <option value="2">inactive</option>
+        </select></td>
+        <td><button class="btn btn-danger" (click)="deleteAnn(a)"> Delete</button></td>
         <td><button class="btn btn-primary" (click)="save(a)" *ngIf="this.isEditable">Save</button></td>
         <td><button class="btn btn-primary" (click)="editJob(a)" *ngIf="this.a.category.categoryId==1">Edit job</button>
           <button class="btn btn-primary" (click)="editScholarship(a)" *ngIf="this.a.category.categoryId==2">Edit

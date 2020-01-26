@@ -1,52 +1,71 @@
 <div class="form-style-10">
-  <h1> Announcement Details</h1>
+  <h1>My Job Announcement Details</h1>
 
   <table class="table table-striped">
     <tbody>
       <tr>
         <td><label>NAME</label></td>
-        <td><label>DESCRIPTION</label></td>
-        <td><label>URL</label></td>
-        <td><label>CREATED BY</label></td>
-        <td><label>CREATED ON</label></td>
-        <td><label>STATUS</label></td>
-        <td><label>ORGANIZATION</label></td>
-        <td><label>RESPONSIBILITES</label></td>
-        <td><label>SALARY</label></td>
-        <td><label>EXPERIENCE</label></td>
-        <td><label>BENEFITS</label></td>
-        <td><label>REQUIREMENTS</label></td>
-        <td></td>
-      </tr>
-      <tr>
         <td>{{this.jobAnns.anncmnt.anncmntName}}</td>
-        <td>{{this.jobAnns.anncmnt.description}}</td>
-        <td>{{this.jobAnns.anncmnt.url}}</td>
-        <td>{{this.jobAnns.anncmnt.userEmail}}</td>
-        <td>{{this.jobAnns.anncmnt.dateCreated |date}}</td>
-        <td>{{this.jobAnns.anncmnt.status.statusName}}</td>
-        <td>
-          <input type="text" [(ngModel)]="this.jobAnns.anncmntOrganization" [disabled]="!this.isEditable">
-        </td>
-        <td>
-          <textarea [(ngModel)]="this.jobAnns.candidateResponsibility" [disabled]="!this.isEditable"></textarea>
-        </td>
-        <td>
-          <input type="number" [(ngModel)]="this.jobAnns.salary" [disabled]="!this.isEditable">
-        </td>
-        <td>
-          <input type="number" [(ngModel)]="this.jobAnns.experiance" [disabled]="!this.isEditable">
-        </td>
-        <td>
-          <input type="text" [(ngModel)]="this.jobAnns.benefits" [disabled]="!this.isEditable">
-        </td>
-        <td>
-          <input type="text" [(ngModel)]="this.jobAnns.requirements" [disabled]="!this.isEditable">
-        </td>
-        <td><button class="btn btn-primary" (click)="save(jobAnns)" *ngIf="this.isEditable">Save</button></td>
       </tr>
       <tr>
-        <td><button class="btn btn-primary" (click)="edit()" *ngIf="!this.isEditable">Edit</button></td>
+        <td><label>DESCRIPTION</label></td>
+        <td>{{this.jobAnns.anncmnt.description}}</td>
+      </tr>
+      <tr>
+        <td><label>URL</label></td>
+        <td>{{this.jobAnns.anncmnt.url}}</td>
+      </tr>
+      <tr>
+        <td><label>CREATED BY</label></td>
+        <td>{{this.jobAnns.anncmnt.userEmail}}</td>
+      </tr>
+      <tr>
+        <td><label>EXPIRATION DATE</label></td>
+        <td>{{this.jobAnns.anncmnt.dateCreated |date}}</td>
+      </tr>
+      <tr>
+        <td><label>STATUS</label></td>
+        <td>{{this.jobAnns.anncmnt.status.statusName}}</td>
+      </tr>
+      <tr>
+        <td><label>ORGANIZATION</label></td>
+        <td>
+            <input type="text" [(ngModel)]="this.jobAnns.anncmntOrganization" [disabled]="!this.isEditable">
+        </td>
+      </tr>
+      <tr>  
+        <td><label>RESPONSIBILITES</label></td>
+        <td>
+            <textarea [(ngModel)]="this.jobAnns.candidateResponsibility" [disabled]="!this.isEditable"></textarea>
+        </td>
+      </tr>
+      <tr>
+        <td><label>SALARY</label></td>
+        <td>
+            <input type="text" [(ngModel)]="this.jobAnns.salary" [disabled]="!this.isEditable">
+          </td>
+      </tr>
+      <tr>
+        <td><label>EXPERIENCE</label></td>
+        <td>
+            <input type="number" [(ngModel)]="this.jobAnns.experiance" [disabled]="!this.isEditable">
+          </td>
+      </tr>
+      <tr>
+        <td><label>BENEFITS</label></td>
+        <td>
+            <input type="text" [(ngModel)]="this.jobAnns.benefits" [disabled]="!this.isEditable">
+        </td>
+      </tr>
+      <tr>
+        <td><label>REQUIREMENTS</label></td>
+        <td>
+            <input type="text" [(ngModel)]="this.jobAnns.requirements" [disabled]="!this.isEditable">
+        </td>
+      </tr>
+      <tr>
+      <td><button class="btn btn-primary" (click)="save(jobAnns)" [disabled]="!this.isEditable">Save</button></td>
+      <td><button class="btn btn-primary" (click)="edit()" [disabled]="this.isEditable">Edit</button></td>
       </tr>
     </tbody>
   </table>

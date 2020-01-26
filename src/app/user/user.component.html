@@ -11,19 +11,35 @@
         <td>PHONE</td>
         <td>CITY</td>
         <td>COUNTRY</td>
-        <td>AGE</td>
+        <td></td>
+        <td></td>
         <td></td>
       </tr>
       <tr *ngFor="let us of userattributes">
-        <td>{{us.role.description}}</td>
+        <td><select [(ngModel)]="us.role.id" id="#" [disabled]="!this.isEditable"
+            (ngModelChange)='onOptionsSelected($event)'>
+            <option value="1">ADMIN</option>
+            <option value="2">USER</option>
+        </select></td>
         <td>{{us.email}}</td>
-        <td>{{us.fName}}</td>
-        <td>{{us.lName}}</td>
-        <td>{{us.phone}}</td>
-        <td>{{us.city}}</td>
-        <td>{{us.country}}</td>
-        <td>{{us.age}}</td>
+        <td>
+          <input type="text" [(ngModel)]="this.us.fName" [disabled]="!this.isEditable">
+        </td>
+        <td>
+            <input type="text" [(ngModel)]="this.us.lName" [disabled]="!this.isEditable">
+        </td>
+        <td>
+            <input type="text" [(ngModel)]="this.us.phone" [disabled]="!this.isEditable">
+        </td>
+        <td>
+            <input type="text" [(ngModel)]="this.us.city" [disabled]="!this.isEditable">
+        </td>
+        <td>
+            <input type="text" [(ngModel)]="this.us.country" [disabled]="!this.isEditable">
+        </td>
         <td><button class="btn btn-danger" (click)="deleteUser(us)">Delete User</button></td>
+        <td><button class="btn btn-danger" (click)="editUser()" *ngIf="!this.isEditable">Edit</button></td>
+        <td><button class="btn btn-danger" (click)="saveUser(us)" *ngIf="this.isEditable">Save</button></td>
       </tr>
     </tbody>
   </table>

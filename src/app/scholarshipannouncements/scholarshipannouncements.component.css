@@ -1,7 +1,7 @@
 @import url('http://fonts.googleapis.com/css?family=Bitter');
 
 .form-style-10{
-
+	width:1970px;
 	padding:30px;
 	margin:40px auto;
 	font: 13px Arial, Helvetica, sans-serif;
@@ -55,8 +55,6 @@
 .form-style-10 input[type="datetime"],
 .form-style-10 input[type="email"],
 .form-style-10 input[type="number"],
-.form-style-10 input[type="search"],
-.form-style-10 input[type="time"],
 .form-style-10 input[type="url"],
 .form-style-10 input[type="password"],
 .form-style-10 select {

@@ -1,13 +1,13 @@
 export class User {
       email: null;
       phone: null;
-      age: null;
       city: null;
       country: null;
       fName: null;
       lName: null;
        role:
     {
+      id:null;
       description: null;
     };
       password: null;

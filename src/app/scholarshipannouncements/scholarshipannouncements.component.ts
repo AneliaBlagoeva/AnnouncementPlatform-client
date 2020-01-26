@@ -16,35 +16,43 @@ export class ScholarshipAnnouncementComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private scholarshipAnnService: ScholarshipAnnouncementService) {}
+    private scholarshipAnnService: ScholarshipAnnouncementService) { }
 
   ngOnInit() {
     this.scholarshipAnnService.getScholarshipAnnouncements()
-      .subscribe( data => {
-        this.schAnns = data;
+      .subscribe(data => {
+        if (data != null) {
+          this.schAnns = data;
+        }
+        else {
+
+        }
       });
   }
 
-  
-   edit() {
+  onOptionsSelected(event) {
+    console.log(event); //option value will be sent as event
+  }
+
+  edit() {
     this.isEditable = true;
   }
 
   save(announcement: ScholarshipAnnouncement) {
-    let regexDecimal=new RegExp('^\d{0,2}(\.\d{0,2}){0,1}$');
-    if(announcement.minGrade==0.0 ||announcement.scholarshipAward==0.0
-      || announcement.requirements=="" || !regexDecimal.test(announcement.minGrade)
-      || !regexDecimal.test(announcement.scholarshipAward))
-      {
+    if (confirm("Are you sure you want to save?")) {
+      if (announcement.minGrade == 0.0 || announcement.scholarshipAward == 0.0
+        || announcement.requirements == "") {
         alert("Your input is invalid!");
-      }else{
-    this.scholarshipAnnService.editAnn(announcement)
-      .subscribe(res => {
-        alert("Scholarship announcement is saved!");
-      }, (err) => {
-        console.log(err);
-        alert(err.error);
-      });
-  }
+      } else {
+        this.scholarshipAnnService.editAnn(announcement)
+          .subscribe(res => {
+            alert("Scholarship announcement is saved!");
+          }, (err) => {
+            console.log(err);
+            alert(err.error);
+          });
+      }
+    }
+    this.isEditable = false;
   }
 }

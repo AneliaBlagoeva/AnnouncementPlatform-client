@@ -12,36 +12,39 @@ import { VolunteerAnnouncement } from '../models/volunteerannouncement.model';
 })
 export class VolunteerAnnouncementComponent implements OnInit {
 
-   volAnns: VolunteerAnnouncement[];
-   isEditable: boolean;
+  volAnns: VolunteerAnnouncement[];
+  isEditable: boolean;
 
   constructor(
     private router: Router,
-    private volAnnService: VolunteerAnnouncementService) {}
+    private volAnnService: VolunteerAnnouncementService) { }
 
   ngOnInit() {
     this.volAnnService.getVolAnnouncements()
-      .subscribe( data => {
+      .subscribe(data => {
         this.volAnns = data;
       });
   }
 
-  
+
   edit() {
     this.isEditable = true;
   }
 
   save(announcement: VolunteerAnnouncement) {
-    if(announcement.anncmntOrganization==""){
-      alert("Your input is invalid!")
-    }else{
-    this.volAnnService.editAnn(announcement)
-      .subscribe(res => {
-      alert("Volunteer announcement is saved!");
-      }, (err) => {
-        console.log(err);
-        alert(err.error);
-      });
-  }
+    if (confirm("Are you sure you want to save?")) {
+      if (announcement.anncmntOrganization == "") {
+        alert("Your input is invalid!")
+      } else {
+        this.volAnnService.editAnn(announcement)
+          .subscribe(res => {
+            alert("Volunteer announcement is saved!");
+          }, (err) => {
+            console.log(err);
+            alert(err.error);
+          });
+      }
+    }
+    this.isEditable = false;
   }
 }
