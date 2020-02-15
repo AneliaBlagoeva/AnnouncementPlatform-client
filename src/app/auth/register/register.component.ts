@@ -41,8 +41,9 @@ export class RegisterComponent implements OnInit {
                               this.f.lastname.value, this.f.phone.value, this.f.city.value,
                               this.f.country.value)
       .subscribe(res => {
-        alert('Successfull registration!')
-        this.router.navigate(['']);
+        alert(res.message)
+        this.router.navigate(['/']);
+        
       }, (err) => {
         console.log(err);
         alert(err.error);
