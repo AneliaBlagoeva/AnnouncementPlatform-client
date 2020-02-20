@@ -26,4 +26,14 @@ export class FooterComponent implements OnInit {
     this.isLoggedIn=false;
     this.router.navigate(['header']);
   }
+
+  home(){
+    let role='';
+    role=localStorage.getItem('currentUserRole');
+    if (role == 'ADMIN') {
+                        this.router.navigate(['homepageAdmin']);
+                    } else {
+                        this.router.navigate(['homepageAuthuser']);
+                    }
+  }
 }
